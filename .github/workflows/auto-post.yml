@@ -46,7 +46,6 @@ jobs:
         env:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
-          # 아래 URL의 <GITHUB-USERNAME>과 <REPO-NAME>을 실제 값으로 바꿔주세요.
-          # 예: https://bisaek-korea.github.io/instagram-celadon-generator/docs
-          PUBLIC_BASE_URL: https://<GITHUB-USERNAME>.github.io/<REPO-NAME>/docs
+          # GitHub Pages 소스가 /docs 폴더이므로, 실제 배포 URL에는 /docs가 붙지 않는다.
+          PUBLIC_BASE_URL: https://bisaek-korea.github.io/instagram-celadon-generator
         run: python generate_post.py --publish "${{ steps.generate.outputs.image_path }}" --public-base-url "$PUBLIC_BASE_URL"
