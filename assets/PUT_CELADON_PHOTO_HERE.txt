@@ -1,0 +1,6 @@
+이 폴더에 실제 비색청자 이미지를 celadon_bg.jpg 라는 이름으로 넣으면
+generate_post.py가 --bg-image 옵션 없이도 자동으로 이 사진을 배경으로 사용합니다.
+
+다른 파일명을 쓰고 싶다면:
+    python generate_post.py --ko "..." --bg-image "assets\my_photo.jpg"
+처럼 --bg-image로 직접 경로를 지정하면 됩니다.
