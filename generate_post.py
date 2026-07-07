@@ -16,11 +16,13 @@
 
 Instagram 자동 게시 (--upload):
     아이디/비밀번호 로그인 자동화는 이용약관 위반 및 계정 정지 위험이 있어 지원하지 않는다.
-    대신 공식 Instagram Graph API(Content Publishing)를 사용한다. 사전 준비:
-      1. 인스타그램 계정을 비즈니스/크리에이터 계정으로 전환하고 Facebook 페이지와 연결
-      2. Meta 개발자 앱을 만들고 instagram_basic, instagram_content_publish 권한의
-         장기 액세스 토큰 발급
-      3. output 폴더의 이미지를 공개 URL로 접근 가능한 곳(자체 서버, S3, Cloudflare 등)에
+    대신 공식 "Instagram API with Instagram Login"(Business Login for Instagram)을 사용한다.
+    단일 계정(자기 소유) 운영에 Meta가 권장하는 방식으로, Facebook 페이지 연결이 필요 없다. 사전 준비:
+      1. 인스타그램 계정을 비즈니스/크리에이터 계정으로 전환
+      2. Meta 개발자 앱에 Instagram > "API setup with Instagram login" 제품 추가,
+         instagram_business_basic, instagram_business_content_publish 권한으로
+         OAuth 진행 후 장기(60일) 액세스 토큰 발급
+      3. output 폴더의 이미지를 공개 URL로 접근 가능한 곳(GitHub Pages 등)에
          동일 파일명으로 호스팅 (Graph API가 image_url을 직접 fetch하기 때문에 로컬 파일 불가)
       4. 환경변수 설정 후 --upload 플래그로 실행
          set IG_USER_ID=...
@@ -30,9 +32,10 @@ Instagram 자동 게시 (--upload):
 
 완전 자동(예약) 게시 — GitHub Actions에서 사용:
     .github/workflows/auto-post.yml 이 정해진 요일에 자동으로 아래 순서를 실행한다.
-      1. --next: posts.json 중 다음 순서 1개만 생성해 docs/ 에 저장하고 state.json 갱신
-      2. 생성된 docs/ 이미지를 git commit + push (GitHub Pages로 공개됨)
-      3. 잠시 대기 후 --publish: 방금 만든 이미지를 실제로 Instagram에 게시
+      1. --refresh-token: 60일 장기 토큰을 다시 60일로 갱신 (매 실행마다, 만료 방지)
+      2. --next: posts.json 중 다음 순서 1개만 생성해 docs/ 에 저장하고 state.json 갱신
+      3. 생성된 docs/ 이미지를 git commit + push (GitHub Pages로 공개됨)
+      4. 잠시 대기 후 --publish: 방금 만든 이미지를 실제로 Instagram에 게시
     사람이 할 일은 GitHub 저장소 생성/Pages 활성화, IG_USER_ID·IG_ACCESS_TOKEN을
     저장소 Secrets에 등록하는 것뿐 — 그 이후로는 매번 자동 실행된다.
 """
@@ -74,18 +77,20 @@ FONT_AR_PATH = os.path.join(FONTS_DIR, "NotoNaskhArabic.ttf")
 DEFAULT_BG_IMAGE = os.path.join(ASSETS_DIR, "celadon_bg.jpg")
 
 # ---------------------------------------------------------------------------
-# Instagram Graph API (Content Publishing) 설정
+# Instagram API with Instagram Login (Business Login for Instagram) 설정
 #
 # 인스타그램은 아이디/비밀번호 로그인 자동화를 금지하며(이용약관 위반, 계정 정지 위험),
-# 공식적으로는 Business/Creator 계정 + 연결된 Facebook 페이지 + Meta 개발자 앱을 통한
-# Graph API 게시만 지원한다. 필요한 값은 코드에 직접 적지 말고 환경변수로 설정한다.
-#   IG_USER_ID       인스타그램 비즈니스 계정 ID (Graph API의 ig-user-id)
-#   IG_ACCESS_TOKEN  instagram_content_publish 권한이 있는 장기 액세스 토큰
+# 공식적으로는 Business/Creator 계정 + Meta 개발자 앱을 통한 공식 API만 지원한다.
+# 단일 계정(자기 소유) 운영에는 Facebook 페이지 연결이 필요 없는 "Instagram API with
+# Instagram Login"이 Meta가 권장하는 더 간단한 방식이라 이걸 사용한다.
+# 필요한 값은 코드에 직접 적지 말고 환경변수로 설정한다.
+#   IG_USER_ID       Instagram Login으로 로그인해서 얻은 Instagram 계정 ID
+#   IG_ACCESS_TOKEN  instagram_business_content_publish 권한이 있는 장기 액세스 토큰
 #   PUBLIC_BASE_URL  output 폴더 이미지가 실제로 공개 접근 가능한 URL prefix
 #                    (Graph API는 서버가 image_url을 직접 fetch하므로 로컬 파일은 불가)
 # ---------------------------------------------------------------------------
 GRAPH_API_VERSION = "v21.0"
-GRAPH_API_BASE = f"https://graph.facebook.com/{GRAPH_API_VERSION}"
+GRAPH_API_BASE = f"https://graph.instagram.com/{GRAPH_API_VERSION}"
 
 DEFAULT_HASHTAGS_KO = ["#비색", "#청자", "#고려청자", "#한국도자기", "#전통색"]
 DEFAULT_HASHTAGS_AR = ["#السيراميك_الكوري", "#اللون_الفيروزي", "#كوريا", "#فن_كوري"]
@@ -116,10 +121,15 @@ def _require_env(name):
     return value
 
 
+def _auth_headers(access_token):
+    return {"Authorization": f"Bearer {access_token}"}
+
+
 def create_media_container(ig_user_id, access_token, image_url, caption):
     resp = requests.post(
         f"{GRAPH_API_BASE}/{ig_user_id}/media",
-        data={"image_url": image_url, "caption": caption, "access_token": access_token},
+        headers=_auth_headers(access_token),
+        data={"image_url": image_url, "caption": caption},
         timeout=30,
     )
     data = resp.json()
@@ -133,7 +143,8 @@ def wait_for_container(creation_id, access_token, timeout=120, interval=3):
     while elapsed < timeout:
         resp = requests.get(
             f"{GRAPH_API_BASE}/{creation_id}",
-            params={"fields": "status_code,status", "access_token": access_token},
+            headers=_auth_headers(access_token),
+            params={"fields": "status_code,status"},
             timeout=30,
         )
         data = resp.json()
@@ -150,13 +161,28 @@ def wait_for_container(creation_id, access_token, timeout=120, interval=3):
 def publish_media(ig_user_id, access_token, creation_id):
     resp = requests.post(
         f"{GRAPH_API_BASE}/{ig_user_id}/media_publish",
-        data={"creation_id": creation_id, "access_token": access_token},
+        headers=_auth_headers(access_token),
+        data={"creation_id": creation_id},
         timeout=30,
     )
     data = resp.json()
     if "id" not in data:
         raise InstagramUploadError(f"게시 실패: {data}")
     return data["id"]
+
+
+def refresh_long_lived_token(access_token):
+    """60일짜리 장기 토큰의 유효기간을 다시 60일로 연장한다.
+    GitHub Actions에서 매 실행마다 호출해 토큰이 만료되지 않게 갱신한다."""
+    resp = requests.get(
+        f"{GRAPH_API_BASE}/refresh_access_token",
+        params={"grant_type": "ig_refresh_token", "access_token": access_token},
+        timeout=30,
+    )
+    data = resp.json()
+    if "access_token" not in data:
+        raise InstagramUploadError(f"토큰 갱신 실패: {data}")
+    return data["access_token"]
 
 
 def upload_to_instagram(image_path, caption, public_base_url=None, ig_user_id=None, access_token=None):
@@ -562,7 +588,16 @@ def main():
     parser.add_argument("--state", default="state.json", help="--next가 사용하는 진행 상황 기록 파일 (기본: state.json)")
     parser.add_argument("--output-dir", default="docs", help="--next로 생성한 이미지를 저장할 폴더 (기본: docs, GitHub Pages 배포용)")
     parser.add_argument("--publish", default=None, help="이미 생성된 이미지 경로를 지정해 Instagram에 게시만 수행 (--next로 만든 파일용)")
+    parser.add_argument(
+        "--refresh-token", action="store_true",
+        help="IG_ACCESS_TOKEN(60일 장기 토큰)의 유효기간을 다시 60일로 연장하고 새 토큰을 표준출력으로 출력",
+    )
     args = parser.parse_args()
+
+    if args.refresh_token:
+        new_token = refresh_long_lived_token(_require_env("IG_ACCESS_TOKEN"))
+        print(new_token)
+        return
 
     if args.publish:
         publish_existing(args.publish, public_base_url=args.public_base_url)
