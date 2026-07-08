@@ -1,0 +1,44 @@
+name: Post Batch Reels
+
+# 수동 실행: 갤러리의 여러 릴스(아랍어)를 순차로 게시한다. 토큰은 저장소 Secrets 사용.
+on:
+  workflow_dispatch:
+    inputs:
+      slugs:
+        description: "게시할 slug 목록(공백 구분)"
+        required: true
+        default: "boj_glow learn_kfood four_seasons safe_night"
+
+permissions:
+  contents: read
+
+jobs:
+  batch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: 파이썬 설치
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 패키지 설치
+        run: pip install -r requirements.txt
+
+      - name: 릴스 순차 게시
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          BASE: https://bisaek-korea.github.io/instagram-celadon-generator/preview
+        run: |
+          for slug in ${{ github.event.inputs.slugs }}; do
+            echo "::group::게시 $slug"
+            python generate_post.py \
+              --publish-reel "$BASE/${slug}_reel_ar.mp4" \
+              --caption-file "captions/${slug}_ar.txt" \
+              || echo "[경고] $slug 게시 실패 — 다음으로 진행"
+            echo "::endgroup::"
+            sleep 25
+          done
