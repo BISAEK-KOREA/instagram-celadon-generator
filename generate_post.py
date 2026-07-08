@@ -211,13 +211,18 @@ def upload_to_instagram(image_path, caption, public_base_url=None, ig_user_id=No
     return media_id
 
 
-def create_reel_container(ig_user_id, access_token, video_url, caption):
+def create_reel_container(ig_user_id, access_token, video_url, caption, thumb_offset=None):
     """릴스(영상) 컨테이너 생성. 이미지와 달리 media_type=REELS + video_url을 쓴다.
-    영상은 반드시 공개 URL(GitHub Pages 등)에 올라가 있어야 API가 직접 가져간다."""
+    영상은 반드시 공개 URL(GitHub Pages 등)에 올라가 있어야 API가 직접 가져간다.
+    thumb_offset(ms): 표지(썸네일)를 영상의 이 지점에서 잡는다. 페이드인 때문에
+    맨 첫 프레임이 검정이면 표지가 검게 나오므로, 중간 프레임을 지정해 방지한다."""
+    data = {"media_type": "REELS", "video_url": video_url, "caption": caption}
+    if thumb_offset is not None:
+        data["thumb_offset"] = str(thumb_offset)
     resp = requests.post(
         f"{GRAPH_API_BASE}/{ig_user_id}/media",
         headers=_auth_headers(access_token),
-        data={"media_type": "REELS", "video_url": video_url, "caption": caption},
+        data=data,
         timeout=30,
     )
     data = resp.json()
@@ -226,14 +231,15 @@ def create_reel_container(ig_user_id, access_token, video_url, caption):
     return data["id"]
 
 
-def publish_reel(video_url, caption, ig_user_id=None, access_token=None):
+def publish_reel(video_url, caption, ig_user_id=None, access_token=None, thumb_offset=1200):
     """공개 video_url의 영상을 Instagram 릴스로 게시한다.
-    영상 처리(트랜스코딩)에 시간이 걸리므로 대기 시간을 넉넉히 잡는다."""
+    영상 처리(트랜스코딩)에 시간이 걸리므로 대기 시간을 넉넉히 잡는다.
+    thumb_offset(ms): 표지를 잡을 지점(기본 1.2초 — 검은 첫 프레임 회피)."""
     ig_user_id = ig_user_id or _require_env("IG_USER_ID")
     access_token = access_token or _require_env("IG_ACCESS_TOKEN")
 
     print(f"[Instagram] 릴스 컨테이너 생성 중... ({video_url})")
-    creation_id = create_reel_container(ig_user_id, access_token, video_url, caption)
+    creation_id = create_reel_container(ig_user_id, access_token, video_url, caption, thumb_offset=thumb_offset)
     print(f"[Instagram] 영상 처리 대기 중... (container id: {creation_id})")
     wait_for_container(creation_id, access_token, timeout=600, interval=5)
     print("[Instagram] 게시 중...")

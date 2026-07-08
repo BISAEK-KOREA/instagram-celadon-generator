@@ -245,7 +245,9 @@ def duration(path):
 def compose(scene, kind, media, overlay, audio):
     dur = duration(audio) + 0.7
     out = os.path.join(OUT, f"scene_{LANG}_{scene['id']}.mp4")
-    fades = f"fade=t=in:st=0:d=0.4,fade=t=out:st={dur-0.4:.2f}:d=0.4"
+    # 첫 장면은 페이드인을 빼서 검은 화면 없이 바로 시작(인스타 표지가 검게 잡히는 것 방지).
+    fade_out = f"fade=t=out:st={dur-0.4:.2f}:d=0.4"
+    fades = fade_out if scene["id"] == "01" else f"fade=t=in:st=0:d=0.4,{fade_out}"
     base = (f"[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},setsar=1"
             + (f",fps={FPS}" if kind == "video" else "") + "[bg];"
             f"[bg][1:v]overlay=0:0,{fades},format=yuv420p[v]")
