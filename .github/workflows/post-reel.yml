@@ -1,0 +1,42 @@
+name: Post Reel to Instagram
+
+# 수동 실행 전용: 공개 영상 URL을 Instagram 릴스로 게시한다.
+# 토큰(IG_ACCESS_TOKEN/IG_USER_ID)은 저장소 Secrets에 있으므로 여기서만 안전하게 쓰인다.
+on:
+  workflow_dispatch:
+    inputs:
+      video_url:
+        description: "공개 영상 URL (GitHub Pages에 올라간 mp4)"
+        required: true
+        default: "https://bisaek-korea.github.io/instagram-celadon-generator/preview/glass_skin_reel_ar.mp4"
+      caption_path:
+        description: "저장소 안 캡션 파일 경로"
+        required: true
+        default: "captions/glass_skin_ar.txt"
+
+permissions:
+  contents: read
+
+jobs:
+  reel:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: 파이썬 설치
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 패키지 설치
+        run: pip install -r requirements.txt
+
+      - name: Instagram 릴스 게시
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: |
+          python generate_post.py \
+            --publish-reel "${{ github.event.inputs.video_url }}" \
+            --caption-file "${{ github.event.inputs.caption_path }}"

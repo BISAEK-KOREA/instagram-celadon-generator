@@ -211,6 +211,37 @@ def upload_to_instagram(image_path, caption, public_base_url=None, ig_user_id=No
     return media_id
 
 
+def create_reel_container(ig_user_id, access_token, video_url, caption):
+    """릴스(영상) 컨테이너 생성. 이미지와 달리 media_type=REELS + video_url을 쓴다.
+    영상은 반드시 공개 URL(GitHub Pages 등)에 올라가 있어야 API가 직접 가져간다."""
+    resp = requests.post(
+        f"{GRAPH_API_BASE}/{ig_user_id}/media",
+        headers=_auth_headers(access_token),
+        data={"media_type": "REELS", "video_url": video_url, "caption": caption},
+        timeout=30,
+    )
+    data = resp.json()
+    if "id" not in data:
+        raise InstagramUploadError(f"릴스 컨테이너 생성 실패: {data}")
+    return data["id"]
+
+
+def publish_reel(video_url, caption, ig_user_id=None, access_token=None):
+    """공개 video_url의 영상을 Instagram 릴스로 게시한다.
+    영상 처리(트랜스코딩)에 시간이 걸리므로 대기 시간을 넉넉히 잡는다."""
+    ig_user_id = ig_user_id or _require_env("IG_USER_ID")
+    access_token = access_token or _require_env("IG_ACCESS_TOKEN")
+
+    print(f"[Instagram] 릴스 컨테이너 생성 중... ({video_url})")
+    creation_id = create_reel_container(ig_user_id, access_token, video_url, caption)
+    print(f"[Instagram] 영상 처리 대기 중... (container id: {creation_id})")
+    wait_for_container(creation_id, access_token, timeout=600, interval=5)
+    print("[Instagram] 게시 중...")
+    media_id = publish_media(ig_user_id, access_token, creation_id)
+    print(f"[Instagram] 릴스 게시 완료. media id: {media_id}")
+    return media_id
+
+
 def load_variable_font(path, size, variation_name):
     """가변 폰트(Variable Font)를 열어 Regular/Bold 등 지정된 굵기 인스턴스로 설정한다."""
     if not os.path.exists(path):
@@ -645,6 +676,8 @@ def main():
     parser.add_argument("--state", default="state.json", help="--next가 사용하는 진행 상황 기록 파일 (기본: state.json)")
     parser.add_argument("--output-dir", default="docs", help="--next로 생성한 이미지를 저장할 폴더 (기본: docs, GitHub Pages 배포용)")
     parser.add_argument("--publish", default=None, help="이미 생성된 이미지 경로를 지정해 Instagram에 게시만 수행 (--next로 만든 파일용)")
+    parser.add_argument("--publish-reel", default=None, help="공개 video_url을 지정해 Instagram 릴스(영상)로 게시")
+    parser.add_argument("--caption-file", default=None, help="캡션 텍스트 파일 경로 (--publish-reel용)")
     parser.add_argument(
         "--refresh-token", action="store_true",
         help="IG_ACCESS_TOKEN(60일 장기 토큰)의 유효기간을 다시 60일로 연장하고 새 토큰을 표준출력으로 출력",
@@ -666,6 +699,14 @@ def main():
 
     if args.publish:
         publish_existing(args.publish, public_base_url=args.public_base_url)
+        return
+
+    if args.publish_reel:
+        caption = ""
+        if args.caption_file:
+            with open(args.caption_file, encoding="utf-8") as f:
+                caption = f.read().strip()
+        publish_reel(args.publish_reel, caption)
         return
 
     if args.next:
