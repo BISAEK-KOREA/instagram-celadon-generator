@@ -5,7 +5,12 @@ name: Auto Post to Instagram
 on:
   schedule:
     - cron: "0 0 * * 1,3,5"
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "미리보기만 (인스타에 게시하지 않고 이미지만 아티팩트로 업로드)"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -25,13 +30,27 @@ jobs:
       - name: 패키지 설치
         run: pip install -r requirements.txt
 
+      # 실행 환경의 아랍어 렌더링 경로를 로그로 남긴다(문제 추적용).
+      - name: 렌더링 환경 점검
+        run: python generate_post.py --check-env
+
       - name: 다음 순서 포스트 이미지 생성
         id: generate
         run: |
           IMAGE_PATH=$(python generate_post.py --next --batch posts.json --state state.json --output-dir docs | tail -n 1)
           echo "image_path=$IMAGE_PATH" >> "$GITHUB_OUTPUT"
 
+      # ── 미리보기(dry_run) 모드: 인스타에 올리지 않고 이미지를 아티팩트로만 올린다 ──
+      - name: (미리보기) 생성 이미지 업로드
+        if: ${{ github.event.inputs.dry_run == 'true' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: preview-image
+          path: ${{ steps.generate.outputs.image_path }}
+
+      # ── 실제 게시 모드: 아래 단계들은 dry_run이 아닐 때만 실행 ──
       - name: 생성된 이미지를 GitHub Pages(docs/)에 반영
+        if: ${{ github.event.inputs.dry_run != 'true' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -40,9 +59,11 @@ jobs:
           git push
 
       - name: GitHub Pages 배포 대기
+        if: ${{ github.event.inputs.dry_run != 'true' }}
         run: sleep 60
 
       - name: Instagram에 게시
+        if: ${{ github.event.inputs.dry_run != 'true' }}
         env:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}

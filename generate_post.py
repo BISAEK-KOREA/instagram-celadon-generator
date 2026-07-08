@@ -49,7 +49,7 @@ import time
 from datetime import datetime
 
 import requests
-from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps
+from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageOps, features
 
 try:
     import arabic_reshaper
@@ -57,6 +57,14 @@ try:
     ARABIC_SUPPORT = True
 except ImportError:
     ARABIC_SUPPORT = False
+
+# Pillow가 libraqm(HarfBuzz)로 빌드됐는지 여부.
+# raqm이 있으면 draw.text()가 아랍어의 글자 결합(shaping)+방향(bidi)을 '자동'으로 처리한다.
+# 이때 우리가 수동 reshape+bidi까지 하면 '이중 처리'가 되어 글자가 깨진다.
+#  - Windows 로컬 Pillow: raqm 없음  → 수동 reshape+bidi 필요
+#  - GitHub Actions Pillow: raqm 있음 → 원문을 그대로 넘기고 엔진에 맡겨야 함
+# 환경에 따라 경로를 갈라, 어디서 실행하든 '항상 올바른' 아랍어가 나오게 한다.
+RAQM_AVAILABLE = features.check("raqm")
 
 CANVAS_SIZE = (1080, 1350)
 
@@ -308,6 +316,47 @@ def shape_arabic(text):
     return get_display(reshaped)
 
 
+def _arabic_draw_kwargs():
+    """아랍어를 그릴 때 draw.text()/textbbox()/textlength()에 넘길 추가 인자.
+    raqm이 있을 때만 방향을 rtl로 지정한다(없는 환경에서 이 인자를 주면 오류)."""
+    return {"direction": "rtl", "language": "ar"} if RAQM_AVAILABLE else {}
+
+
+def prepare_arabic_line(text):
+    """한 줄의 아랍어(논리 순서)를 '실제로 그릴 문자열'로 변환한다.
+    - raqm 있음: 원문 그대로 반환(엔진이 shaping+bidi 처리) — 이중 처리 방지
+    - raqm 없음: 수동 reshape+bidi로 시각 순서 문자열 생성"""
+    if RAQM_AVAILABLE:
+        return text
+    return shape_arabic(text)
+
+
+def check_render_env():
+    """실행 환경에서 아랍어가 올바르게 렌더링될 수 있는지 점검한다.
+    문제가 있으면 SystemExit로 '시끄럽게' 실패시켜, 깨진 이미지가 게시되는 것을 CI 단계에서 막는다."""
+    import PIL
+    path = "raqm(엔진 자동 shaping)" if RAQM_AVAILABLE else "수동 reshape+bidi"
+    print(f"Pillow {PIL.__version__} | raqm={RAQM_AVAILABLE} | arabic_pkgs={ARABIC_SUPPORT} | 아랍어 경로: {path}")
+
+    # raqm이 없는 환경에서는 수동 처리 패키지가 반드시 있어야 한다.
+    if not RAQM_AVAILABLE and not ARABIC_SUPPORT:
+        raise SystemExit(
+            "❌ 아랍어를 렌더링할 방법이 없습니다(raqm 없음 + arabic-reshaper/python-bidi 미설치).\n"
+            "   pip install arabic-reshaper python-bidi 또는 raqm 지원 Pillow가 필요합니다."
+        )
+
+    # 실제로 한 줄을 그려봐서 예외 없이 통과하는지 확인(스모크 테스트).
+    probe = Image.new("RGB", (400, 120), "white")
+    d = ImageDraw.Draw(probe)
+    try:
+        f = load_variable_font(FONT_AR_PATH, 40, "Bold")
+    except Exception:
+        f = ImageFont.truetype(FONT_AR_PATH, 40)
+    lines = wrap_arabic(d, "الجمال في السكون", f, 380)
+    draw_centered_multiline(d, lines, f, 200, 20, fill=(0, 0, 0), extra_draw_kwargs=_arabic_draw_kwargs())
+    print("✅ 아랍어 렌더링 스모크 테스트 통과")
+
+
 def _break_long_token(draw, token, font, max_width):
     """공백 없이 max_width보다 긴 단어(URL 등)를 글자 단위로 쪼갠다."""
     chunks, chunk = [], ""
@@ -353,36 +402,42 @@ def wrap_korean(draw, text, font, max_width):
 
 
 def wrap_arabic(draw, text, font, max_width):
-    """단어(논리적 순서) 단위로 줄바꿈 후, 줄마다 reshape+bidi 적용.
+    """단어(논리적 순서) 단위로 줄바꿈 후, 줄마다 '그릴 문자열'로 변환한다.
+    변환 방식은 prepare_arabic_line()이 환경(raqm 유무)에 맞게 결정한다.
     명시적 개행(\\n)은 문단 구분으로 유지하고, 단어 자체가 max_width를 넘으면 글자 단위로 쪼갠다."""
+    kw = _arabic_draw_kwargs()
+
+    def width(logical_text):
+        return draw.textlength(prepare_arabic_line(logical_text), font=font, **kw)
+
     lines = []
     for paragraph in text.split("\n"):
         words = paragraph.split()
         current_words = []
         for word in words:
             candidate = " ".join(current_words + [word])
-            shaped = shape_arabic(candidate)
-            if draw.textlength(shaped, font=font) <= max_width:
+            if width(candidate) <= max_width:
                 current_words.append(word)
                 continue
             if current_words:
-                lines.append(shape_arabic(" ".join(current_words)))
+                lines.append(prepare_arabic_line(" ".join(current_words)))
                 current_words = []
-            if draw.textlength(shape_arabic(word), font=font) <= max_width:
+            if width(word) <= max_width:
                 current_words = [word]
             else:
-                lines.extend(shape_arabic(c) for c in _break_long_token(draw, word, font, max_width))
+                lines.extend(prepare_arabic_line(c) for c in _break_long_token(draw, word, font, max_width))
         if current_words:
-            lines.append(shape_arabic(" ".join(current_words)))
+            lines.append(prepare_arabic_line(" ".join(current_words)))
         if not paragraph:
             lines.append("")
     return lines
 
 
-def draw_centered_multiline(draw, lines, font, center_x, top_y, fill, line_gap=14, stroke_width=0, stroke_fill=None):
+def draw_centered_multiline(draw, lines, font, center_x, top_y, fill, line_gap=14, stroke_width=0, stroke_fill=None, extra_draw_kwargs=None):
+    extra = extra_draw_kwargs or {}
     y = top_y
     for line in lines:
-        bbox = draw.textbbox((0, 0), line, font=font, stroke_width=stroke_width)
+        bbox = draw.textbbox((0, 0), line, font=font, stroke_width=stroke_width, **extra)
         w = bbox[2] - bbox[0]
         h = bbox[3] - bbox[1]
         draw.text(
@@ -392,6 +447,7 @@ def draw_centered_multiline(draw, lines, font, center_x, top_y, fill, line_gap=1
             fill=fill,
             stroke_width=stroke_width,
             stroke_fill=stroke_fill,
+            **extra,
         )
         y += h + line_gap
     return y
@@ -445,6 +501,7 @@ def generate_post(
         ar_lines = wrap_arabic(draw, ar_text, ar_font, content_w)
         y = draw_centered_multiline(
             draw, ar_lines, ar_font, cx, y, fill=(240, 244, 238, 255), line_gap=18,
+            extra_draw_kwargs=_arabic_draw_kwargs(),
         )
         y += 40
         draw.line([(cx - 60, y), (cx + 60, y)], fill=(224, 236, 228, 160), width=2)
@@ -592,7 +649,15 @@ def main():
         "--refresh-token", action="store_true",
         help="IG_ACCESS_TOKEN(60일 장기 토큰)의 유효기간을 다시 60일로 연장하고 새 토큰을 표준출력으로 출력",
     )
+    parser.add_argument(
+        "--check-env", action="store_true",
+        help="실행 환경의 아랍어 렌더링 경로를 점검하고 종료(문제가 있으면 오류로 종료). CI 로그/디버깅용.",
+    )
     args = parser.parse_args()
+
+    if args.check_env:
+        check_render_env()
+        return
 
     if args.refresh_token:
         new_token = refresh_long_lived_token(_require_env("IG_ACCESS_TOKEN"))
