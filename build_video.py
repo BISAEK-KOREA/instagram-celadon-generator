@@ -168,6 +168,13 @@ def cover_fit(img, size):
 
 def get_media(scene):
     bgpath = os.path.join(OUT, f"bg_{SLUG}_{scene['id']}.png")
+    # 로컬 이미지(실제 제품컷 등)를 지정하면 그대로 사용한다.
+    if scene.get("image"):
+        src = scene["image"] if os.path.isabs(scene["image"]) else os.path.join(PROJECT, scene["image"])
+        if os.path.exists(src):
+            cover_fit(Image.open(src).convert("RGB"), (W, H)).save(bgpath)
+            print(f"    로컬 이미지: {scene['image']}")
+            return "photo", bgpath
     if scene.get("media") == "video":
         vp = fetch_video(scene["q"]) if scene.get("q") else None
         if vp:
@@ -292,7 +299,12 @@ def make_cover():
     sc0 = SCENES[0]
     framep = os.path.join(OUT, f"_cvbg_{SLUG}.png")
     bg = None
-    if sc0.get("media") == "video":
+    # 커버 전용 이미지(예: 제품컷)를 지정하면 그것을 배경으로 쓴다.
+    if COVER.get("image"):
+        cimg = COVER["image"] if os.path.isabs(COVER["image"]) else os.path.join(PROJECT, COVER["image"])
+        if os.path.exists(cimg):
+            bg = Image.open(cimg).convert("RGB")
+    if bg is None and sc0.get("media") == "video":
         src = os.path.join(OUT, f"src_{_slug(sc0['q'])}.mp4")
         if os.path.exists(src):
             subprocess.run([FFMPEG, "-y", "-ss", "1.2", "-i", src, "-frames:v", "1", framep],
