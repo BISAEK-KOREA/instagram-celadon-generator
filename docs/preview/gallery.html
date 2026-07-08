@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>bisaek 릴스 검수 갤러리</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin:0; background:#12201b; color:#eef3ef; font-family:-apple-system,"Segoe UI",Tahoma,sans-serif; padding:22px 12px; }
+  h1 { text-align:center; font-size:20px; margin:6px 0 4px; }
+  .lead { text-align:center; font-size:13px; opacity:.7; margin:0 0 22px; }
+  .grid { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; max-width:1200px; margin:0 auto; }
+  .card { background:#182a23; border:1px solid rgba(255,255,255,.08); border-radius:18px; padding:14px; width:320px; }
+  .pno { font-size:11px; letter-spacing:1px; opacity:.6; }
+  .title { font-size:15px; font-weight:600; margin:2px 0 10px; }
+  video { width:100%; border-radius:12px; background:#000; }
+  .tabs { display:flex; gap:6px; margin-top:10px; }
+  .tabs button { flex:1; border:1px solid rgba(255,255,255,.22); background:transparent; color:#eef3ef; padding:7px 0; border-radius:999px; font-size:13px; cursor:pointer; }
+  .tabs button.active { background:#6fae95; color:#10201a; border-color:#6fae95; font-weight:600; }
+  .brand { text-align:center; margin-top:24px; font-size:12px; opacity:.5; }
+</style>
+</head>
+<body>
+  <h1>bisaek 릴스 검수 갤러리</h1>
+  <p class="lead">제작번호별 샘플 · 아랍어 기본 / 한국어 / 영어 전환 · 비공개(인스타 미게시)</p>
+  <div class="grid" id="grid"></div>
+  <div class="brand">@bisaek.kr · 제작: 지니 콘텐츠 스튜디오</div>
+
+<script>
+  var SAMPLES = [
+    {no:"BSK-20260708-01", title:"조선미녀 글로우 딥 세럼 (K-뷰티)", slug:"boj_glow"},
+    {no:"BSK-20260708-02", title:"외국인이 배우는 핫한 것: K-푸드", slug:"learn_kfood"},
+    {no:"BSK-20260708-03", title:"한국의 아름다운 사계절", slug:"four_seasons"},
+    {no:"BSK-20260708-04", title:"한국은 밤에도 안전해요", slug:"safe_night"}
+  ];
+  var grid = document.getElementById('grid');
+  SAMPLES.forEach(function(s){
+    var card = document.createElement('div'); card.className='card';
+    card.innerHTML =
+      '<div class="pno">'+s.no+'</div>'+
+      '<div class="title">'+s.title+'</div>'+
+      '<video id="v_'+s.slug+'" controls playsinline preload="metadata"><source id="src_'+s.slug+'" src="'+s.slug+'_reel_ar.mp4" type="video/mp4"></video>'+
+      '<div class="tabs">'+
+        '<button class="active" data-l="ar" onclick="pick(\''+s.slug+'\',\'ar\',this)">🇸🇦 아랍어</button>'+
+        '<button data-l="ko" onclick="pick(\''+s.slug+'\',\'ko\',this)">🇰🇷 한국어</button>'+
+        '<button data-l="en" onclick="pick(\''+s.slug+'\',\'en\',this)">🇬🇧 EN</button>'+
+      '</div>';
+    grid.appendChild(card);
+  });
+  function pick(slug, lang, btn){
+    var v=document.getElementById('v_'+slug);
+    document.getElementById('src_'+slug).src = slug+'_reel_'+lang+'.mp4';
+    v.load();
+    btn.parentNode.querySelectorAll('button').forEach(function(b){ b.classList.toggle('active', b===btn); });
+  }
+</script>
+</body>
+</html>

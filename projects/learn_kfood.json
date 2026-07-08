@@ -1,0 +1,66 @@
+{
+  "title": "외국인이 배우는 핫한 것: K-푸드",
+  "prod_no": "BSK-20260708-02",
+  "slug": "learn_kfood",
+  "scenes": [
+    {
+      "id": "01", "media": "video", "q": "korean street food market night",
+      "narr": {
+        "ar": "هل تعلمين ما هو أكثر شيءٍ يأتي الأجانب لتعلّمه في كوريا؟ إنه الطبخ الكوري!",
+        "ko": "외국인이 한국에 와서 가장 배우고 싶어 하는 것, 무엇일까요? 바로 한국 요리예요!",
+        "en": "Do you know the hottest thing foreigners come to Korea to learn? Korean cooking!"
+      },
+      "sub": {"ar": "الأجانب يتعلّمون الطبخ الكوري", "ko": "외국인이 배우는 핫한 것: 한국요리", "en": "The hot thing to learn: Korean cooking"}
+    },
+    {
+      "id": "02", "media": "video", "q": "cooking class hands vegetables",
+      "narr": {
+        "ar": "في صفوف الطبخ الكورية، تتعلّمين تحضير الأطباق الشهيرة خطوةً بخطوة.",
+        "ko": "한국 쿠킹클래스에서는 유명한 요리를 단계별로 직접 배워요.",
+        "en": "In Korean cooking classes, you learn famous dishes step by step."
+      },
+      "sub": {"ar": "صفوف طبخٍ خطوة بخطوة", "ko": "단계별 쿠킹클래스", "en": "Step-by-step classes"}
+    },
+    {
+      "id": "03", "media": "video", "q": "kimchi making hands",
+      "narr": {
+        "ar": "الكيمتشي — طبق التخمير الكوري الشهير، وسرُّ نكهته في التوابل والصبر.",
+        "ko": "김치 — 한국의 대표 발효음식, 그 맛의 비밀은 양념과 정성이에요.",
+        "en": "Kimchi — Korea's famous fermented dish; its flavor comes from spice and patience."
+      },
+      "sub": {"ar": "الكيمتشي — تخميرٌ كوري", "ko": "김치 — 발효의 맛", "en": "Kimchi — the art of fermentation"}
+    },
+    {
+      "id": "04", "media": "video", "q": "tteokbokki rice cake cooking",
+      "narr": {
+        "ar": "أو التوكبوكي — أصابع الأرز بصلصةٍ حمراء حلوةٍ حارّة، محبوبةٌ لدى الجميع.",
+        "ko": "또는 떡볶이 — 달콤매콤한 소스의 떡, 남녀노소 모두의 사랑이죠.",
+        "en": "Or tteokbokki — chewy rice cakes in a sweet-and-spicy sauce, loved by everyone."
+      },
+      "sub": {"ar": "توكبوكي — أصابع الأرز الحارّة", "ko": "떡볶이 — 국민 간식", "en": "Tteokbokki — everyone's favorite"}
+    },
+    {
+      "id": "05", "media": "photo", "q": "korean food ingredients",
+      "narr": {
+        "ar": "لا تحتاجين إلى خبرة — فقط شهيّةٌ للتعلّم. إليكِ أشهر ما يتعلّمه الزوّار:",
+        "ko": "경험은 필요 없어요 — 배우려는 마음만 있으면 돼요. 방문객이 가장 많이 배우는 것:",
+        "en": "No experience needed — just curiosity. Here's what visitors learn most:"
+      },
+      "sub": {"ar": "الأشهر تعلّمًا", "ko": "가장 인기 있는 클래스", "en": "Most popular to learn"},
+      "products": {
+        "ar": ["الكيمتشي — التخمير التقليدي", "البيبيمباب — أرزٌ بالخضار الملوّن", "التوكبوكي — وجبة الشارع الشهيرة"],
+        "ko": ["김치 — 전통 발효", "비빔밥 — 색색 채소 비빔밥", "떡볶이 — 인기 분식"],
+        "en": ["Kimchi — traditional fermentation", "Bibimbap — colorful veggie rice", "Tteokbokki — famous street food"]
+      }
+    },
+    {
+      "id": "06", "media": "video", "q": "chef plating dish restaurant",
+      "narr": {
+        "ar": "نكهةٌ تحكي ثقافةً كاملة. تابِعينا لتتعلّمي المزيد عن كوريا.",
+        "ko": "한 그릇에 담긴 문화. 한국을 더 알고 싶다면 팔로우하세요.",
+        "en": "A whole culture in one dish. Follow us to learn more about Korea."
+      },
+      "sub": {"ar": "تابِعينا — نكهة كوريا", "ko": "팔로우하세요 — 한국의 맛", "en": "Follow us — taste of Korea"}
+    }
+  ]
+}

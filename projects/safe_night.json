@@ -1,0 +1,66 @@
+{
+  "title": "한국은 밤에도 안전해요",
+  "prod_no": "BSK-20260708-04",
+  "slug": "safe_night",
+  "scenes": [
+    {
+      "id": "01", "media": "video", "q": "quiet city street night lamp",
+      "narr": {
+        "ar": "تمشين وحدكِ ليلاً في المدينة… وتشعرين بأمانٍ تام. هذه هي كوريا.",
+        "ko": "밤에 혼자 도시를 걸어도 마음이 놓여요. 이게 한국이에요.",
+        "en": "Walking alone in the city at night… and feeling completely safe. This is Korea."
+      },
+      "sub": {"ar": "آمنةٌ حتى في الليل", "ko": "밤에도 안전한 나라", "en": "Safe even at night"}
+    },
+    {
+      "id": "02", "media": "video", "q": "woman walking alone night street",
+      "narr": {
+        "ar": "كثيرٌ من الزائرات يتفاجأن أنّهنّ يستطعن التنقّل ليلاً بكلّ أريحية.",
+        "ko": "많은 여행자들이 밤에도 편하게 다닐 수 있다는 데 놀라요.",
+        "en": "Many visitors are surprised they can move around comfortably at night."
+      },
+      "sub": {"ar": "تنقّلٌ ليليٌّ مريح", "ko": "밤에도 편한 이동", "en": "Comfortable at night"}
+    },
+    {
+      "id": "03", "media": "video", "q": "cozy cafe laptop table",
+      "narr": {
+        "ar": "في المقاهي، يترك الناس حواسيبهم على الطاولة ويعودون… ولا شيء يُفقد.",
+        "ko": "카페에선 노트북을 두고 자리를 비워도 그대로 있어요.",
+        "en": "In cafés, people leave laptops on the table and come back… nothing goes missing."
+      },
+      "sub": {"ar": "أغراضٌ تبقى مكانها", "ko": "두고 가도 그대로", "en": "Belongings stay put"}
+    },
+    {
+      "id": "04", "media": "video", "q": "cctv camera city street",
+      "narr": {
+        "ar": "كاميراتٌ في كلّ مكان، ونقلٌ عامٌّ نظيفٌ وآمنٌ حتى وقتٍ متأخّر.",
+        "ko": "곳곳의 CCTV, 늦은 시간까지 안전하고 깨끗한 대중교통.",
+        "en": "Cameras everywhere, and clean, safe public transport until late."
+      },
+      "sub": {"ar": "كاميرات ونقلٌ آمن", "ko": "CCTV·안전한 대중교통", "en": "Cameras & safe transit"}
+    },
+    {
+      "id": "05", "media": "photo", "q": "city skyline night",
+      "narr": {
+        "ar": "ما الذي يفاجئ الزائرات أكثر في كوريا؟",
+        "ko": "방문객이 가장 놀라는 점은 무엇일까요?",
+        "en": "What surprises visitors most in Korea?"
+      },
+      "sub": {"ar": "لماذا تشعرين بالأمان؟", "ko": "왜 안전할까?", "en": "Why so safe?"},
+      "products": {
+        "ar": ["التجوّل ليلاً بلا قلق", "أغراضٌ متروكةٌ تبقى بأمان", "كاميرات ونقلٌ عامٌّ متأخّر"],
+        "ko": ["밤 산책도 걱정 없이", "두고 간 물건도 그대로", "CCTV·심야 대중교통"],
+        "en": ["Walk at night worry-free", "Left items stay safe", "CCTV & late-night transit"]
+      }
+    },
+    {
+      "id": "06", "media": "video", "q": "people walking night market",
+      "narr": {
+        "ar": "راحةٌ تجعل كلَّ رحلةٍ أجمل. تابِعينا لمزيدٍ عن الحياة في كوريا.",
+        "ko": "여행을 더 편하게 만드는 안심. 한국의 일상을 팔로우로 만나요.",
+        "en": "Peace of mind that makes every trip better. Follow us for more of life in Korea."
+      },
+      "sub": {"ar": "تابِعينا — الحياة في كوريا", "ko": "팔로우 — 한국의 일상", "en": "Follow us — life in Korea"}
+    }
+  ]
+}

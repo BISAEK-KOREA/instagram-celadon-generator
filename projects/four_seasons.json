@@ -1,0 +1,66 @@
+{
+  "title": "한국의 아름다운 사계절",
+  "prod_no": "BSK-20260708-03",
+  "slug": "four_seasons",
+  "scenes": [
+    {
+      "id": "01", "media": "video", "q": "cherry blossom spring park",
+      "narr": {
+        "ar": "في كوريا، لكلّ فصلٍ وجهٌ ولون. يبدأ الربيع بأزهار الكرز الورديّة في أبريل.",
+        "ko": "한국은 계절마다 다른 얼굴을 가져요. 봄은 4월, 분홍 벚꽃으로 시작돼요.",
+        "en": "In Korea, every season has its own face. Spring begins in April with pink cherry blossoms."
+      },
+      "sub": {"ar": "الربيع — أزهار الكرز", "ko": "봄 — 벚꽃", "en": "Spring — cherry blossoms"}
+    },
+    {
+      "id": "02", "media": "video", "q": "green forest river summer",
+      "narr": {
+        "ar": "ثمّ يأتي الصيف بأشجارٍ خضراء كثيفةٍ وأنهارٍ منعشة.",
+        "ko": "이어 여름은 짙은 초록과 시원한 계곡으로 물들어요.",
+        "en": "Then summer arrives with lush green trees and cool rivers."
+      },
+      "sub": {"ar": "الصيف — أخضرُ وارف", "ko": "여름 — 짙은 초록", "en": "Summer — lush green"}
+    },
+    {
+      "id": "03", "media": "video", "q": "autumn maple leaves red",
+      "narr": {
+        "ar": "وفي الخريف، تشتعل الجبال بالأحمر والذهبيّ في أكتوبر ونوفمبر.",
+        "ko": "가을엔 10~11월, 온 산이 붉고 노랗게 물들어요.",
+        "en": "In autumn, the mountains blaze red and gold through October and November."
+      },
+      "sub": {"ar": "الخريف — أوراقٌ ذهبية", "ko": "가을 — 단풍", "en": "Autumn — golden leaves"}
+    },
+    {
+      "id": "04", "media": "video", "q": "snow falling winter street",
+      "narr": {
+        "ar": "ثمّ يغطّي الشتاءُ كلَّ شيءٍ بثلجٍ أبيضَ هادئ.",
+        "ko": "겨울은 온 세상을 하얀 눈으로 조용히 덮어요.",
+        "en": "Then winter blankets everything in quiet white snow."
+      },
+      "sub": {"ar": "الشتاء — ثلجٌ أبيض", "ko": "겨울 — 하얀 눈", "en": "Winter — white snow"}
+    },
+    {
+      "id": "05", "media": "photo", "q": "mountain landscape aerial",
+      "narr": {
+        "ar": "أربعة فصولٍ واضحة، لكلٍّ جمالُه وموعدُه:",
+        "ko": "뚜렷한 사계절, 각기 다른 아름다움과 시기:",
+        "en": "Four distinct seasons, each with its own beauty and timing:"
+      },
+      "sub": {"ar": "متى تزورين؟", "ko": "언제 갈까?", "en": "When to visit?"},
+      "products": {
+        "ar": ["الربيع: أزهار الكرز — أبريل", "الخريف: أوراق القيقب — أكتوبر ~ نوفمبر", "الشتاء: الثلج — ديسمبر ~ فبراير"],
+        "ko": ["봄: 벚꽃 — 4월", "가을: 단풍 — 10~11월", "겨울: 눈 — 12~2월"],
+        "en": ["Spring: blossoms — April", "Autumn: maple — Oct–Nov", "Winter: snow — Dec–Feb"]
+      }
+    },
+    {
+      "id": "06", "media": "video", "q": "hanok village street",
+      "narr": {
+        "ar": "أرضٌ تتبدّل مع كلّ فصل. تابِعينا لاكتشاف كوريا في كلّ وقت.",
+        "ko": "계절마다 새로워지는 나라. 사계절의 한국을 팔로우로 만나요.",
+        "en": "A land that transforms with every season. Follow us to discover Korea year-round."
+      },
+      "sub": {"ar": "تابِعينا — فصول كوريا", "ko": "팔로우하세요 — 한국의 사계", "en": "Follow us — Korea's seasons"}
+    }
+  ]
+}
