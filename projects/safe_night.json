@@ -2,6 +2,7 @@
   "title": "한국은 밤에도 안전해요",
   "prod_no": "BSK-20260708-04",
   "slug": "safe_night",
+  "cover": {"tag": "الحياة في كوريا", "hook": "آمنة حتى في الليل"},
   "scenes": [
     {
       "id": "01", "media": "video", "q": "quiet city street night lamp",

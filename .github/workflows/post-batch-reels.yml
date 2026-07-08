@@ -38,6 +38,7 @@ jobs:
             python generate_post.py \
               --publish-reel "$BASE/${slug}_reel_ar.mp4" \
               --caption-file "captions/${slug}_ar.txt" \
+              --cover-url "$BASE/${slug}_cover.png" \
               || echo "[경고] $slug 게시 실패 — 다음으로 진행"
             echo "::endgroup::"
             sleep 25

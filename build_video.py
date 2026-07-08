@@ -87,6 +87,7 @@ SCENES = [
 # 프로젝트(샘플) 오버라이드: PROJECT_JSON 환경변수로 다른 장면/제작번호를 불러온다.
 # JSON 형식: {"title": "...", "prod_no": "BSK-YYYYMMDD-01", "slug": "boj_glow", "scenes": [...]}
 TITLE, PROD_NO, SLUG = "글래스 스킨의 진짜 비밀", "", "glass_skin"
+COVER = {"tag": "أسرار الجمال الكوري", "hook": "بشرة الزجاج"}  # 그리드 표지용 태그/훅(아랍어)
 _pj = os.environ.get("PROJECT_JSON")
 if _pj:
     import json as _json
@@ -95,6 +96,7 @@ if _pj:
     TITLE = _meta.get("title", TITLE)
     PROD_NO = _meta.get("prod_no", "")
     SLUG = _meta.get("slug", "reel")
+    COVER = _meta.get("cover")  # 없으면 커버 생성 생략
 
 
 def _slug(q):
@@ -282,13 +284,57 @@ def build_one(lang):
     return final
 
 
+def make_cover():
+    """그리드 표지용 브랜드 커버(1080x1920) 생성: 첫 장면의 깨끗한 프레임 위에
+    카테고리 태그 + 큰 아랍어 훅 + @bisaek.kr. 텍스트는 중앙(정사각 크롭 안전영역)에 배치."""
+    if not COVER:
+        return None
+    sc0 = SCENES[0]
+    framep = os.path.join(OUT, f"_cvbg_{SLUG}.png")
+    bg = None
+    if sc0.get("media") == "video":
+        src = os.path.join(OUT, f"src_{_slug(sc0['q'])}.mp4")
+        if os.path.exists(src):
+            subprocess.run([FFMPEG, "-y", "-ss", "1.2", "-i", src, "-frames:v", "1", framep],
+                           check=True, capture_output=True)
+            bg = Image.open(framep).convert("RGB")
+    if bg is None:
+        bgp = os.path.join(OUT, f"bg_{SLUG}_{sc0['id']}.png")
+        bg = Image.open(bgp).convert("RGB") if os.path.exists(bgp) else gp.create_celadon_background((W, H)).convert("RGB")
+    im = cover_fit(bg, (W, H))
+    im = Image.blend(im, Image.new("RGB", (W, H), (0, 0, 0)), 0.45).convert("RGBA")
+    ov = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(ov)
+    cy = H // 2
+    for y in range(H):
+        d.line([(0, y), (W, y)], fill=(8, 18, 14, int(150 * abs(y - cy) / cy)))
+    im = Image.alpha_composite(im, ov); d = ImageDraw.Draw(im)
+    akw = gp._arabic_draw_kwargs()
+    tf = gp.load_variable_font(gp.FONT_AR_PATH, 52, "Bold")
+    gp.draw_centered_multiline(d, gp.wrap_arabic(d, COVER["tag"], tf, int(W * 0.86)), tf, W / 2,
+                               int(H * 0.34), fill=(175, 217, 198), line_gap=8, extra_draw_kwargs=akw)
+    d.line([(W / 2 - 110, int(H * 0.34) + 82), (W / 2 + 110, int(H * 0.34) + 82)], fill=(175, 217, 198, 200), width=3)
+    hf = gp.load_variable_font(gp.FONT_AR_PATH, 120, "Bold")
+    gp.draw_centered_multiline(d, gp.wrap_arabic(d, COVER["hook"], hf, int(W * 0.92)), hf, W / 2,
+                               int(H * 0.40), fill=(255, 255, 255), line_gap=16,
+                               stroke_width=5, stroke_fill=(10, 25, 18), extra_draw_kwargs=akw)
+    bf = gp.load_variable_font(gp.FONT_KO_PATH, 40, "Regular")
+    d.text((W / 2 - d.textlength("@bisaek.kr", font=bf) / 2, H - 120), "@bisaek.kr", font=bf, fill=(255, 255, 255, 220))
+    out = os.path.join(OUT, f"{SLUG}_cover.png"); im.convert("RGB").save(out)
+    print(f"커버 생성: {out}")
+    return out
+
+
 def main():
+    # COVER_ONLY=1 이면 영상은 건드리지 않고 표지 커버만 생성한다.
+    if os.environ.get("COVER_ONLY"):
+        make_cover()
+        return
     # 기본값: 아랍어(기본) + 한국어 + 영어 세 버전 모두 생성.
-    # 특정 언어만 만들려면 환경변수 LANG_CODES="ar" 또는 "ar,en" 처럼 지정.
     env = os.environ.get("LANG_CODES", "").strip()
     langs = [l.strip() for l in env.split(",") if l.strip()] or ["ar", "ko", "en"]
     for lg in langs:
         build_one(lg)
+    make_cover()
     print("모든 언어 완료:", ", ".join(langs))
 
 

@@ -2,6 +2,7 @@
   "title": "외국인이 배우는 핫한 것: K-푸드",
   "prod_no": "BSK-20260708-02",
   "slug": "learn_kfood",
+  "cover": {"tag": "نكهة كوريا", "hook": "المطبخ الكوري"},
   "scenes": [
     {
       "id": "01", "media": "video", "q": "korean street food market night",

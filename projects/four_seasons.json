@@ -2,6 +2,7 @@
   "title": "한국의 아름다운 사계절",
   "prod_no": "BSK-20260708-03",
   "slug": "four_seasons",
+  "cover": {"tag": "اكتشفي كوريا", "hook": "فصول كوريا الأربعة"},
   "scenes": [
     {
       "id": "01", "media": "video", "q": "cherry blossom spring park",
