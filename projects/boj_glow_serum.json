@@ -1,0 +1,66 @@
+{
+  "title": "조선미녀 글로우 딥 세럼",
+  "prod_no": "BSK-20260708-01",
+  "slug": "boj_glow",
+  "scenes": [
+    {
+      "id": "01", "media": "video", "q": "woman face skin closeup",
+      "narr": {
+        "ar": "بقعٌ داكنة؟ بشرة باهتة؟ الحلّ سرٌّ كوريّ من عصر جوسون.",
+        "ko": "잡티? 칙칙한 피부? 그 답은 조선에서 온 한국의 비밀이에요.",
+        "en": "Dark spots? Dull skin? The answer is a Korean secret from the Joseon era."
+      },
+      "sub": {"ar": "بقع داكنة؟ الحلّ كوريّ", "ko": "잡티? 답은 한국에 있어요", "en": "Dark spots? A Korean answer"}
+    },
+    {
+      "id": "02", "media": "video", "q": "serum dropper skincare",
+      "narr": {
+        "ar": "«جمال جوسون» — علامة كورية مستوحاة من طقوس جمال بلاط جوسون.",
+        "ko": "'조선미녀' — 조선 궁중의 미용 의식에서 영감을 받은 한국 브랜드.",
+        "en": "'Beauty of Joseon' — a Korean brand inspired by the beauty rituals of the Joseon court."
+      },
+      "sub": {"ar": "جمال جوسون · إرثٌ كوري", "ko": "조선미녀 · 한국의 유산", "en": "Beauty of Joseon · Korean heritage"}
+    },
+    {
+      "id": "03", "media": "video", "q": "rice grains water",
+      "narr": {
+        "ar": "«سيروم جلو ديب» يحوي ٦٨٪ من ماء نخالة الأرز — الأرز نفسه الذي اعتنت به الكوريات منذ قرون — لإشراقٍ كالزجاج.",
+        "ko": "'글로우 딥 세럼'은 쌀겨수 68% — 수백 년간 한국 여성이 써온 바로 그 쌀 — 로 유리알 광채를 줘요.",
+        "en": "'Glow Deep Serum' contains 68% rice bran water — the very rice Korean women have used for centuries — for a glass-like glow."
+      },
+      "sub": {"ar": "٦٨٪ ماء نخالة الأرز", "ko": "쌀겨수 68%", "en": "68% rice bran water"}
+    },
+    {
+      "id": "04", "media": "video", "q": "glowing skin face beauty",
+      "narr": {
+        "ar": "ومع ٢٪ من ألفا-أربوتين، يفتّح البقع الداكنة ويوحّد لون البشرة.",
+        "ko": "그리고 알파-아부틴 2%가 잡티를 밝히고 피부톤을 고르게 해줘요.",
+        "en": "And with 2% alpha-arbutin, it brightens dark spots and evens skin tone."
+      },
+      "sub": {"ar": "٢٪ ألفا-أربوتين — تفتيح البقع", "ko": "알파아부틴 2% — 잡티 개선", "en": "2% alpha-arbutin — brightening"}
+    },
+    {
+      "id": "05", "media": "photo", "q": "beige minimal skincare",
+      "narr": {
+        "ar": "قطرات قليلة صباحًا ومساءً على بشرة نظيفة. الحجم ٣٠ مل، وبسعرٍ في متناول الجميع.",
+        "ko": "아침저녁 깨끗한 피부에 몇 방울. 30ml, 부담 없는 가격이에요.",
+        "en": "A few drops morning and night on clean skin. 30ml, at an affordable price."
+      },
+      "sub": {"ar": "المكوّنات والسعر", "ko": "제품 정보 · 가격", "en": "The product & price"},
+      "products": {
+        "ar": ["جمال جوسون · سيروم جلو ديب", "أرز + ألفا-أربوتين · ٣٠ مل", "‏≈ ٦٠ ﷼‏  (حوالي ١٦ دولارًا)‏"],
+        "ko": ["조선미녀 · 글로우 딥 세럼", "쌀 + 알파아부틴 · 30ml", "약 2만원 (≈ 16달러)"],
+        "en": ["Beauty of Joseon · Glow Deep Serum", "Rice + Alpha-Arbutin · 30ml", "≈ 60 SAR (about $16)"]
+      }
+    },
+    {
+      "id": "06", "media": "video", "q": "korea palace traditional",
+      "narr": {
+        "ar": "جمالٌ من التقاليد الكورية. تابِعينا لمزيدٍ من أسرار الجمال الكوري.",
+        "ko": "한국 전통에서 온 아름다움. 한국 뷰티의 비밀을 더 보려면 팔로우하세요.",
+        "en": "Beauty from Korean tradition. Follow us for more Korean beauty secrets."
+      },
+      "sub": {"ar": "تابِعينا — الجمال الكوري", "ko": "팔로우하세요 — 한국 뷰티", "en": "Follow us — Korean beauty"}
+    }
+  ]
+}

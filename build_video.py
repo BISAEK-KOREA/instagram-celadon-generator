@@ -84,6 +84,19 @@ SCENES = [
 ]
 
 
+# 프로젝트(샘플) 오버라이드: PROJECT_JSON 환경변수로 다른 장면/제작번호를 불러온다.
+# JSON 형식: {"title": "...", "prod_no": "BSK-YYYYMMDD-01", "slug": "boj_glow", "scenes": [...]}
+TITLE, PROD_NO, SLUG = "글래스 스킨의 진짜 비밀", "", "glass_skin"
+_pj = os.environ.get("PROJECT_JSON")
+if _pj:
+    import json as _json
+    _meta = _json.load(open(_pj, encoding="utf-8"))
+    SCENES = _meta["scenes"]
+    TITLE = _meta.get("title", TITLE)
+    PROD_NO = _meta.get("prod_no", "")
+    SLUG = _meta.get("slug", "reel")
+
+
 def _slug(q):
     return re.sub(r"[^a-z0-9]+", "_", q.lower())[:14]
 
@@ -152,7 +165,7 @@ def cover_fit(img, size):
 
 
 def get_media(scene):
-    bgpath = os.path.join(OUT, f"bg_{scene['id']}.png")
+    bgpath = os.path.join(OUT, f"bg_{SLUG}_{scene['id']}.png")
     if scene.get("media") == "video":
         vp = fetch_video(scene["q"]) if scene.get("q") else None
         if vp:
@@ -184,6 +197,9 @@ def make_overlay(scene):
 
     bf = gp.load_variable_font(gp.FONT_KO_PATH, 34, "Regular")
     d.text((W - 44 - d.textlength(BRAND, font=bf), 44), BRAND, font=bf, fill=(255, 255, 255, 220))
+    if PROD_NO:
+        pnf = gp.load_variable_font(gp.FONT_KO_PATH, 26, "Regular")
+        d.text((44, 48), PROD_NO, font=pnf, fill=(255, 255, 255, 170))
 
     sub = scene["sub"][LANG]
     if scene.get("products"):
@@ -253,11 +269,11 @@ def build_one(lang):
         clip, dur = compose(sc, kind, media, make_overlay(sc), make_audio(sc))
         clips.append(clip); total += dur
         print(f"    -> {kind}, {dur:.1f}초")
-    listfile = os.path.join(OUT, f"concat_{LANG}.txt")
+    listfile = os.path.join(OUT, f"concat_{SLUG}_{LANG}.txt")
     with open(listfile, "w", encoding="utf-8") as f:
         for c in clips:
             f.write(f"file '{c.replace(os.sep, '/')}'\n")
-    final = os.path.join(OUT, f"glass_skin_reel_{LANG}.mp4")
+    final = os.path.join(OUT, f"{SLUG}_reel_{LANG}.mp4")
     subprocess.run([FFMPEG, "-y", "-f", "concat", "-safe", "0", "-i", listfile, "-c", "copy", final],
                    check=True, capture_output=True)
     print(f"완성: {final} (약 {total:.0f}초)\n")

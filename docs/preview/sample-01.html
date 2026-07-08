@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>샘플 BSK-20260708-01 — 조선미녀 글로우 딥 세럼</title>
+<style>
+  :root { color-scheme: dark; }
+  body {
+    margin: 0; background: #12201b; color: #eef3ef;
+    font-family: -apple-system, "Segoe UI", Tahoma, sans-serif;
+    display: flex; flex-direction: column; align-items: center;
+    min-height: 100vh; padding: 20px 12px; box-sizing: border-box;
+  }
+  .pno { font-size: 12px; letter-spacing: 1px; opacity: .6; margin-bottom: 2px; }
+  h1 { font-size: 18px; font-weight: 600; margin: 0 0 2px; text-align: center; }
+  p.sub { font-size: 13px; opacity: .7; margin: 0 0 14px; text-align: center; }
+  .tabs { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; justify-content: center; }
+  .tabs button {
+    border: 1px solid rgba(255,255,255,.25); background: transparent; color: #eef3ef;
+    padding: 8px 18px; border-radius: 999px; font-size: 14px; cursor: pointer;
+  }
+  .tabs button.active { background: #6fae95; color: #10201a; border-color: #6fae95; font-weight: 600; }
+  video { width: 100%; max-width: 380px; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,.4); background: #000; }
+  .info { max-width: 380px; font-size: 13px; opacity: .85; margin-top: 16px; line-height: 1.6; }
+  .info b { color: #a9d9c6; }
+  .brand { margin-top: 18px; font-size: 12px; opacity: .5; letter-spacing: .5px; }
+</style>
+</head>
+<body>
+  <div class="pno">제작번호 · BSK-20260708-01</div>
+  <h1>조선미녀 글로우 딥 세럼</h1>
+  <p class="sub">샘플 #1 · 미리보기(비공개) · 약 45초</p>
+
+  <div class="tabs">
+    <button id="btn-ar" class="active" onclick="pick('ar')">🇸🇦 아랍어</button>
+    <button id="btn-ko" onclick="pick('ko')">🇰🇷 한국어</button>
+    <button id="btn-en" onclick="pick('en')">🇬🇧 English</button>
+  </div>
+
+  <video id="player" controls playsinline preload="metadata">
+    <source id="src" src="boj_glow_reel_ar.mp4" type="video/mp4">
+  </video>
+
+  <div class="info">
+    <b>제품:</b> Beauty of Joseon(조선미녀) Glow Deep Serum — Rice + Alpha-Arbutin, 30ml<br>
+    <b>핵심:</b> 쌀겨수 68.6% + 알파아부틴 2% → 잡티 개선·미백·광채<br>
+    <b>가격:</b> 약 2만원 / ≈ 60 SAR / 약 $16<br>
+    <b>출처:</b> iHerb·Sephora 등 · 가격은 판매처·시점에 따라 변동
+  </div>
+  <div class="brand">@bisaek.kr</div>
+
+<script>
+  var FILES = { ar: "boj_glow_reel_ar.mp4", ko: "boj_glow_reel_ko.mp4", en: "boj_glow_reel_en.mp4" };
+  function pick(lang) {
+    var v = document.getElementById('player');
+    document.getElementById('src').src = FILES[lang];
+    v.load();
+    ['ar','ko','en'].forEach(function(l){
+      document.getElementById('btn-'+l).classList.toggle('active', l === lang);
+    });
+  }
+</script>
+</body>
+</html>
