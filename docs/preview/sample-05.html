@@ -11,6 +11,10 @@
   .pno { font-size:12px; letter-spacing:1px; opacity:.6; }
   h1 { font-size:18px; font-weight:600; margin:2px 0; text-align:center; }
   p.sub { font-size:13px; opacity:.7; margin:0 0 14px; text-align:center; }
+  .tabs { display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap; justify-content:center; }
+  .tabs button { border:1px solid rgba(199,169,240,.35); background:transparent; color:#eee9f3;
+    padding:8px 18px; border-radius:999px; font-size:14px; cursor:pointer; }
+  .tabs button.active { background:#a97fe0; color:#1a1030; border-color:#a97fe0; font-weight:600; }
   video { width:100%; max-width:380px; border-radius:16px; box-shadow:0 8px 30px rgba(0,0,0,.5); background:#000; }
   .info { max-width:380px; font-size:13px; opacity:.9; margin-top:16px; line-height:1.7; }
   .info b { color:#c7a9f0; }
@@ -21,17 +25,23 @@
 <body>
   <div class="pno">제작번호 · BSK-20260708-05 · 의뢰 제품</div>
   <h1>메라블 유쎄라블 리프팅샷 900 아이크림</h1>
-  <p class="sub">아랍어 · 약 3분 32초 · 비공개 미리보기</p>
+  <p class="sub">제품 설명 + 구매 안내 · 비공개 미리보기</p>
 
-  <video controls playsinline preload="metadata" poster="melable_eye_cover.png">
-    <source src="melable_eye_reel_ar.mp4" type="video/mp4">
+  <div class="tabs">
+    <button id="btn-ar" class="active" onclick="pick('ar')">🇸🇦 아랍어</button>
+    <button id="btn-ko" onclick="pick('ko')">🇰🇷 한국어</button>
+    <button id="btn-en" onclick="pick('en')">🇬🇧 English</button>
+  </div>
+
+  <video id="player" controls playsinline preload="metadata" poster="melable_eye_cover.png">
+    <source id="src" src="melable_eye_reel_ar.mp4" type="video/mp4">
   </video>
 
   <div class="info">
-    <b>구성:</b> 제품 설명(≈3분) + 구매 안내(≈1분)<br>
     <b>제품컷:</b> 공식 이미지 사용 (히어로·박스·텍스처·라이트빔)<br>
     <b>핵심:</b> 초저분자 콜라겐 · 펩타이드 · 아데노신(주름개선) · 바르는 순간 열감<br>
-    <b>가격 참고:</b> 약 36,000원 (≈ 97 SAR)
+    <b>가격 참고:</b> 약 36,000원 (≈ 97 SAR)<br>
+    <b>길이:</b> 아랍어 3:32 · 한국어 2:43 · 영어 2:34
   </div>
 
   <div class="buy">
@@ -42,5 +52,14 @@
   </div>
 
   <div class="brand">@bisaek.kr · 지니 콘텐츠 스튜디오</div>
+
+<script>
+  var FILES = { ar:"melable_eye_reel_ar.mp4", ko:"melable_eye_reel_ko.mp4", en:"melable_eye_reel_en.mp4" };
+  function pick(lang){
+    var v=document.getElementById('player');
+    document.getElementById('src').src=FILES[lang]; v.load();
+    ['ar','ko','en'].forEach(function(l){ document.getElementById('btn-'+l).classList.toggle('active', l===lang); });
+  }
+</script>
 </body>
 </html>
