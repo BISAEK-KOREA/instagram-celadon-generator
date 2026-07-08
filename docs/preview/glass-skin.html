@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ar" dir="rtl">
+<html lang="ko">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,24 +12,47 @@
     display: flex; flex-direction: column; align-items: center;
     min-height: 100vh; padding: 20px 12px; box-sizing: border-box;
   }
-  h1 { font-size: 18px; font-weight: 600; margin: 8px 0 4px; text-align: center; }
-  p.sub { font-size: 13px; opacity: .7; margin: 0 0 16px; text-align: center; }
+  h1 { font-size: 18px; font-weight: 600; margin: 8px 0 2px; text-align: center; }
+  p.sub { font-size: 13px; opacity: .7; margin: 0 0 14px; text-align: center; }
+  .tabs { display: flex; gap: 8px; margin-bottom: 14px; }
+  .tabs button {
+    border: 1px solid rgba(255,255,255,.25); background: transparent; color: #eef3ef;
+    padding: 8px 20px; border-radius: 999px; font-size: 14px; cursor: pointer;
+  }
+  .tabs button.active { background: #6fae95; color: #10201a; border-color: #6fae95; font-weight: 600; }
   video {
     width: 100%; max-width: 380px; border-radius: 16px;
     box-shadow: 0 8px 30px rgba(0,0,0,.4); background: #000;
   }
   .tip { font-size: 13px; opacity: .75; margin-top: 14px; text-align: center; max-width: 380px; }
-  .brand { margin-top: 22px; font-size: 12px; opacity: .5; letter-spacing: .5px; }
+  .brand { margin-top: 20px; font-size: 12px; opacity: .5; letter-spacing: .5px; }
 </style>
 </head>
 <body>
-  <h1 dir="rtl">أسرار «بشرة الزجاج» الكورية</h1>
-  <p class="sub" dir="ltr">글래스 스킨의 진짜 비밀 · 미리보기 (약 61초)</p>
-  <video controls playsinline preload="metadata">
-    <source src="glass_skin_reel_v2.mp4" type="video/mp4">
-    브라우저가 영상을 지원하지 않아요.
+  <h1>글래스 스킨의 진짜 비밀</h1>
+  <p class="sub">미리보기 · 비공개 (인스타 미게시)</p>
+
+  <div class="tabs">
+    <button id="btn-ar" class="active" onclick="pick('ar')">🇸🇦 아랍어</button>
+    <button id="btn-en" onclick="pick('en')">🇬🇧 English</button>
+  </div>
+
+  <video id="player" controls playsinline preload="metadata">
+    <source id="src" src="glass_skin_reel_v2.mp4" type="video/mp4">
   </video>
-  <p class="tip" dir="ltr">▶︎ 재생 버튼을 누르면 아랍어 음성과 자막이 함께 나와요.<br>휴대폰에서도 이 페이지 그대로 볼 수 있어요.</p>
-  <div class="brand">@bisaek.kr · 미리보기 (비공개)</div>
+
+  <p class="tip">▶︎ 재생 버튼을 누르면 음성과 자막이 함께 나와요. 위 버튼으로 언어를 바꿀 수 있어요.</p>
+  <div class="brand">@bisaek.kr</div>
+
+<script>
+  var FILES = { ar: "glass_skin_reel_v2.mp4", en: "glass_skin_reel_en.mp4" };
+  function pick(lang) {
+    var v = document.getElementById('player');
+    document.getElementById('src').src = FILES[lang];
+    v.load();
+    document.getElementById('btn-ar').classList.toggle('active', lang === 'ar');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  }
+</script>
 </body>
 </html>
