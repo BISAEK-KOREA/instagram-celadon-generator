@@ -1,0 +1,148 @@
+{
+  "title": "Shop@KBridge — 한국 쇼핑 파트너 서비스",
+  "prod_no": "BSK-20260709-06",
+  "slug": "kbridge_service",
+  "cover": {
+    "tag": "خدمة موثوقة",
+    "hook": "مشترياتكِ من كوريا حتى باب بيتك"
+  },
+  "scenes": [
+    {
+      "id": "01",
+      "media": "video",
+      "q": "seoul myeongdong shopping crowd",
+      "narr": {
+        "ar": "من سيول إلى بابكِ في السعودية… كلُّ ما تحلمين به من كوريا أصبح أقربَ ممّا تتخيّلين.",
+        "ko": "서울에서 사우디 문 앞까지… 꿈꾸던 한국 제품이 생각보다 가까워졌어요.",
+        "en": "From Seoul to your door in Saudi Arabia — everything you dream of from Korea is closer than you think."
+      },
+      "sub": {
+        "ar": "من كوريا إلى بابكِ",
+        "ko": "한국에서 문 앞까지",
+        "en": "Korea to your door"
+      }
+    },
+    {
+      "id": "02",
+      "media": "video",
+      "q": "woman frustrated laptop couch",
+      "narr": {
+        "ar": "كم مرّةً وقعتِ على منتجٍ مقلّد؟ أو ماركةٍ كوريّةٍ لا تشحن إلى السعودية أصلًا؟",
+        "ko": "가품에 속거나, 사우디로 배송조차 안 되는 한국 브랜드 때문에 답답했던 적 있죠?",
+        "en": "How many times have you found a fake, or a Korean brand that doesn't even ship to Saudi Arabia?"
+      },
+      "sub": {
+        "ar": "مقلّد؟ لا يشحن؟",
+        "ko": "가품? 배송불가?",
+        "en": "Fakes? No shipping?"
+      }
+    },
+    {
+      "id": "03",
+      "media": "video",
+      "q": "cosmetics store shelves shopping",
+      "narr": {
+        "ar": "الحلّ: شريكةُ تسوّقٍ شخصيّةٌ تعيش في كوريا، تشتري لكِ بنفسها من المتاجر الكوريّة الأصليّة.",
+        "ko": "해결책은 한국에 사는 퍼스널 쇼핑 파트너. 한국 매장에서 직접 사서 보내드려요.",
+        "en": "The answer: a personal shopping partner living in Korea, buying for you directly from real Korean stores."
+      },
+      "sub": {
+        "ar": "شريكتكِ في كوريا",
+        "ko": "한국의 쇼핑 파트너",
+        "en": "Your partner in Korea"
+      }
+    },
+    {
+      "id": "04",
+      "media": "video",
+      "q": "luxury skincare bottles elegant",
+      "narr": {
+        "ar": "منتجات العناية الكوريّة، أجهزة التجميل، سكين بوستر… وحتى مقتنيات الكيبوب وستاربكس كوريا ودايسو.",
+        "ko": "K-뷰티, 뷰티 디바이스, 스킨부스터부터 K-팝 굿즈, 스타벅스 코리아, 다이소까지.",
+        "en": "K-beauty, beauty devices, skin boosters — even K-pop merch, Starbucks Korea, and Daiso finds."
+      },
+      "sub": {
+        "ar": "كلّ ما في كوريا",
+        "ko": "한국의 모든 것",
+        "en": "Everything Korea"
+      }
+    },
+    {
+      "id": "05",
+      "media": "photo",
+      "q": "rose silk fabric elegant",
+      "narr": {
+        "ar": "والطريقة أسهل ممّا تتصوّرين… ثلاثُ خطواتٍ فقط:",
+        "ko": "방법은 생각보다 쉬워요. 딱 3단계:",
+        "en": "And it's easier than you think — just three steps:"
+      },
+      "sub": {
+        "ar": "٣ خطوات فقط",
+        "ko": "딱 3단계",
+        "en": "Just 3 steps"
+      },
+      "products": {
+        "ar": [
+          "١. أرسلي طلبكِ برسالة خاصّة",
+          "٢. نشتريه لكِ أصليًّا من كوريا",
+          "٣. يصلكِ حتى باب بيتكِ"
+        ],
+        "ko": [
+          "1. DM으로 주문 보내기",
+          "2. 한국에서 정품 구매",
+          "3. 집 앞까지 배송"
+        ],
+        "en": [
+          "1. DM your wish list",
+          "2. Bought authentic in Korea",
+          "3. Delivered to your door"
+        ]
+      }
+    },
+    {
+      "id": "06",
+      "media": "video",
+      "q": "hands wrapping gift box care",
+      "narr": {
+        "ar": "صورٌ لمشترياتكِ قبل الشحن، تغليفٌ بعناية، دفعٌ سهل، ومزايا VIP للعميلات الدائمات.",
+        "ko": "배송 전 실물 사진 확인, 꼼꼼한 포장, 간편 결제, 단골에겐 VIP 혜택까지.",
+        "en": "Photos of your items before shipping, careful packing, easy payment, and VIP perks for regulars."
+      },
+      "sub": {
+        "ar": "ثقةٌ وعناية",
+        "ko": "믿음과 정성",
+        "en": "Trust & care"
+      }
+    },
+    {
+      "id": "07",
+      "media": "video",
+      "q": "airplane clouds sunset flying",
+      "narr": {
+        "ar": "شحنٌ سريعٌ إلى السعودية ودول الخليج… ولا تقلقي، كلُّ شيءٍ يصل بأمان.",
+        "ko": "사우디와 걸프 전역으로 빠른 배송. 안전하게 도착하니 걱정 마세요.",
+        "en": "Fast shipping to Saudi Arabia and the Gulf — everything arrives safely."
+      },
+      "sub": {
+        "ar": "شحنٌ سريعٌ وآمن",
+        "ko": "빠르고 안전한 배송",
+        "en": "Fast & safe shipping"
+      }
+    },
+    {
+      "id": "08",
+      "media": "video",
+      "q": "woman opening package excited home",
+      "narr": {
+        "ar": "ابدئي اليوم! راسلي شوب آت كي بريدج على إنستغرام، وأخبريها ماذا تريدين من كوريا.",
+        "ko": "오늘 시작하세요! 인스타그램 @shopatkbridge로 메시지 보내고, 원하는 한국 제품을 말해보세요.",
+        "en": "Start today — message @shopatkbridge on Instagram and tell her what you want from Korea."
+      },
+      "sub": {
+        "ar": "راسليها الآن @shopatkbridge",
+        "ko": "지금 DM @shopatkbridge",
+        "en": "DM now @shopatkbridge"
+      }
+    }
+  ]
+}
