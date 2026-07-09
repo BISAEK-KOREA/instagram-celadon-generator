@@ -1,0 +1,101 @@
+{
+  "title": "Shop@KBridge — 김은희 작가 버전 · 시그널",
+  "prod_no": "BSK-20260709-13",
+  "slug": "kbridge_signal",
+  "style": "brandfilm",
+  "grade": "signal",
+  "music": "assets/music/crime_suspense_by_tyops.mp3",
+  "music_vol": 0.20,
+  "cover": { "tag": "إشارة", "hook": "من سيول، بحبّ", "scene": "02" },
+  "scenes": [
+    {
+      "id": "01",
+      "media": "video",
+      "pexels_id": 7942761,
+      "narr": {
+        "ar": "في مكانٍ ما… على بُعدِ ٨٬٠٠٠ كيلومتر، وصلَتْ إشارة.",
+        "ko": "8,000킬로미터 밖 어딘가에서, 신호 하나가 잡혔다.",
+        "en": "Somewhere, 8,000 km away — a signal came through."
+      },
+      "sub": {
+        "ar": "وصلَتْ إشارة",
+        "ko": "신호 하나가 잡혔다",
+        "en": "A signal came through"
+      }
+    },
+    {
+      "id": "02",
+      "media": "video",
+      "pexels_id": 12518558,
+      "narr": {
+        "ar": "عبرَتِ الليلَ، والمطرَ، وأزقّةَ سيول.",
+        "ko": "밤을, 빗속을, 서울의 골목을 건너서.",
+        "en": "Across the night, the rain, the alleys of Seoul."
+      },
+      "sub": {
+        "ar": "أزقّةَ سيول",
+        "ko": "서울의 골목을 건너",
+        "en": "Through Seoul's alleys"
+      }
+    },
+    {
+      "id": "03",
+      "media": "video",
+      "pexels_id": 35088454,
+      "narr": {
+        "ar": "شخصٌ هناك… كان يُصغي إليكِ.",
+        "ko": "그곳의 누군가는, 당신의 신호를 듣고 있었다.",
+        "en": "Someone there — was listening for you."
+      },
+      "sub": {
+        "ar": "كان يُصغي إليكِ",
+        "ko": "당신을 듣고 있었다",
+        "en": "Listening for you"
+      }
+    },
+    {
+      "id": "04",
+      "media": "video",
+      "pexels_id": 19436637,
+      "narr": {
+        "ar": "لا مسافةَ… تقطعُ هذا الاتّصال.",
+        "ko": "그 어떤 거리도, 이 연결을 끊지 못한다.",
+        "en": "No distance can break this connection."
+      },
+      "sub": {
+        "ar": "لا مسافةَ تقطعُ الاتّصال",
+        "ko": "거리는 연결을 끊지 못한다",
+        "en": "Distance can't break it"
+      }
+    },
+    {
+      "id": "05",
+      "media": "video",
+      "pexels_id": 6612464,
+      "narr": {
+        "ar": "والآن… الإشارةُ تصلُ إليكِ.",
+        "ko": "그리고 마침내, 신호가 당신에게 도착한다.",
+        "en": "And now — the signal reaches you."
+      },
+      "sub": {
+        "ar": "الإشارةُ تصلُ إليكِ",
+        "ko": "신호가 도착한다",
+        "en": "The signal reaches you"
+      }
+    }
+  ],
+  "endcard": {
+    "title": "Shop@KBridge",
+    "handle": "@shopatkbridge",
+    "sub": {
+      "ar": "إشارتُكِ إلى كوريا",
+      "ko": "당신과 한국을 잇는 신호",
+      "en": "Your signal to Korea"
+    },
+    "small": {
+      "ar": "راسلينا الآن",
+      "ko": "지금 DM 하세요",
+      "en": "DM us now"
+    }
+  }
+}

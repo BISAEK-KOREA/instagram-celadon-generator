@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>샘플 BSK-20260709-14 — 코믹 버전</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin:0; background:#241318; color:#f3e9ec; font-family:-apple-system,"Segoe UI",Tahoma,sans-serif;
+    display:flex; flex-direction:column; align-items:center; min-height:100vh; padding:20px 12px; box-sizing:border-box; }
+  .pno { font-size:12px; letter-spacing:1px; opacity:.6; }
+  h1 { font-size:18px; font-weight:600; margin:2px 0; text-align:center; }
+  p.sub { font-size:13px; opacity:.7; margin:0 0 14px; text-align:center; }
+  .tabs { display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap; justify-content:center; }
+  .tabs button { border:1px solid rgba(240,169,190,.35); background:transparent; color:#f3e9ec;
+    padding:8px 18px; border-radius:999px; font-size:14px; cursor:pointer; }
+  .tabs button.active { background:#e08fa8; color:#301018; border-color:#e08fa8; font-weight:600; }
+  video { width:100%; max-width:380px; border-radius:16px; box-shadow:0 8px 30px rgba(0,0,0,.5); background:#000; }
+  .info { max-width:380px; font-size:13px; opacity:.9; margin-top:16px; line-height:1.7; }
+  .info b { color:#f0a9be; }
+  .brand { margin-top:20px; font-size:12px; opacity:.5; }
+</style>
+</head>
+<body>
+  <div class="pno">제작번호 · BSK-20260709-14 · Shop@KBridge (코믹 버전)</div>
+  <h1>참을 수 없는 쇼핑 — 코믹 버전</h1>
+  <p class="sub">경쾌·과장·유쾌한 코미디 · 34초 · 비공개 미리보기</p>
+
+  <div class="tabs">
+    <button id="btn-ar" class="active" onclick="pick('ar')">🇸🇦 아랍어</button>
+    <button id="btn-ko" onclick="pick('ko')">🇰🇷 한국어</button>
+    <button id="btn-en" onclick="pick('en')">🇬🇧 English</button>
+  </div>
+
+  <video id="player" controls playsinline preload="metadata" poster="kbridge_comic_cover.png">
+    <source id="src" src="kbridge_comic_reel_ar.mp4" type="video/mp4">
+  </video>
+
+  <div class="info">
+    <b>카피 흐름:</b> 한국이 부른다! → 배송 불가?! 안 될 말 → 나머진 우리가 → 곧장 문 앞으로 → 누릴 자격 있어요<br>
+    <b>스타일:</b> 펀치감 있는 리듬, 과장된 리액션(놀람·환호), 선명하고 팝한 색감, 색종이·해피 댄스로 마무리<br>
+    <b>음악:</b> Little, happy tune — cabled_mess (CC0, 저작자 표시 불필요)<br>
+    <b>비고:</b> 독립 파트너로만 소개 (관계 비공개)
+  </div>
+
+  <div class="brand">@bisaek.kr · 지니 콘텐츠 스튜디오</div>
+
+<script>
+  var S="kbridge_comic";
+  var FILES = { ar:S+"_reel_ar.mp4", ko:S+"_reel_ko.mp4", en:S+"_reel_en.mp4" };
+  function pick(lang){
+    var v=document.getElementById('player');
+    document.getElementById('src').src=FILES[lang]; v.load();
+    ['ar','ko','en'].forEach(function(l){ document.getElementById('btn-'+l).classList.toggle('active', l===lang); });
+  }
+</script>
+</body>
+</html>

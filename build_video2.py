@@ -291,9 +291,28 @@ def duration(path):
          "-of", "default=nw=1:nk=1", path]).strip())
 
 
-GRADE = ("eq=contrast=1.05:saturation=1.06:brightness=0.01,"
-         "colorbalance=rs=.025:gs=.005:bs=-.02:rm=.02:bm=-.015,"
-         "vignette=PI/5")
+# 감정 톤별 색보정 프리셋 (프로젝트 JSON의 "grade"로 선택; 기본 warm)
+GRADES = {
+    # 기본: 은은하게 따뜻한 청자 톤
+    "default": ("eq=contrast=1.05:saturation=1.06:brightness=0.01,"
+                "colorbalance=rs=.025:gs=.005:bs=-.02:rm=.02:bm=-.015,vignette=PI/5"),
+    # 스필버그: 황금빛 온기, 낮은 대비, 경외감 (약한 글로우)
+    "spielberg": ("eq=contrast=1.02:saturation=1.10:brightness=0.02:gamma=1.03,"
+                  "colorbalance=rs=.06:gs=.03:bs=-.05:rm=.05:gm=.02:bm=-.04,"
+                  "gblur=sigma=6:steps=1:enable='eq(0\\,0)',vignette=PI/6"),
+    # 김은희/시그널: 차갑고 어둡게, 높은 대비, 청록 그림자
+    "signal": ("eq=contrast=1.18:saturation=0.82:brightness=-0.03,"
+               "colorbalance=rs=-.06:gs=.0:bs=.10:rm=-.03:bm=.08:rh=-.02:bh=.05,"
+               "vignette=PI/3.5"),
+    # 코믹: 밝고 쨍한 채도, 팝
+    "comic": ("eq=contrast=1.10:saturation=1.35:brightness=0.04,"
+              "colorbalance=rs=.03:gs=.02:bs=.02,vignette=PI/7"),
+    # 호러: 탈색·차가운 녹색 그림자, 강한 비네트
+    "horror": ("eq=contrast=1.22:saturation=0.68:brightness=-0.06,"
+               "colorbalance=rs=-.05:gs=.06:bs=-.02:rm=-.04:gm=.05:rh=-.03,"
+               "vignette=PI/3"),
+}
+GRADE = GRADES.get(_meta.get("grade", "default"), GRADES["default"])
 
 
 def compose(scene, kind, media, overlay, audio):

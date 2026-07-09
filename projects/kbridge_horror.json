@@ -1,0 +1,101 @@
+{
+  "title": "Shop@KBridge — 호러 버전 · 텅 빈 장바구니",
+  "prod_no": "BSK-20260709-15",
+  "slug": "kbridge_horror",
+  "style": "brandfilm",
+  "grade": "horror",
+  "music": "assets/music/horror_drone_by_hybridv.mp3",
+  "music_vol": 0.24,
+  "cover": { "tag": "تشويق", "hook": "السلّةُ الفارغة", "scene": "04" },
+  "scenes": [
+    {
+      "id": "01",
+      "media": "video",
+      "pexels_id": 24800301,
+      "narr": {
+        "ar": "هناك خوفٌ… لا يتحدّثُ عنه أحد.",
+        "ko": "아무도 말하지 않는, 어떤 두려움이 있다.",
+        "en": "There's a fear no one talks about."
+      },
+      "sub": {
+        "ar": "خوفٌ لا يتحدّثُ عنه أحد",
+        "ko": "말하지 않는 두려움",
+        "en": "A fear no one talks about"
+      }
+    },
+    {
+      "id": "02",
+      "media": "video",
+      "pexels_id": 30728864,
+      "narr": {
+        "ar": "ذلك الشيءُ الذي أردتِه… اختفى.",
+        "ko": "그토록 원하던 그것이… 사라졌다.",
+        "en": "The thing you wanted — gone."
+      },
+      "sub": {
+        "ar": "اختفى",
+        "ko": "사라졌다",
+        "en": "Gone"
+      }
+    },
+    {
+      "id": "03",
+      "media": "video",
+      "pexels_id": 3754902,
+      "narr": {
+        "ar": "«نفدَ المخزون»… «لا يُشحَنُ إليكِ».",
+        "ko": "'품절'. '해당 지역 배송 불가'.",
+        "en": "'Sold out.' 'We don't ship to you.'"
+      },
+      "sub": {
+        "ar": "نفدَ المخزون… لا يُشحَن",
+        "ko": "품절… 배송 불가",
+        "en": "Sold out. No shipping."
+      }
+    },
+    {
+      "id": "04",
+      "media": "video",
+      "pexels_id": 4334323,
+      "narr": {
+        "ar": "الرعبُ الحقيقيّ؟ سلّةٌ فارغة.",
+        "ko": "진짜 공포는? 텅 빈 장바구니.",
+        "en": "The real horror? An empty cart."
+      },
+      "sub": {
+        "ar": "الرعبُ الحقيقيّ: سلّةٌ فارغة",
+        "ko": "진짜 공포, 텅 빈 장바구니",
+        "en": "The real horror: an empty cart"
+      }
+    },
+    {
+      "id": "05",
+      "media": "video",
+      "pexels_id": 26664590,
+      "narr": {
+        "ar": "تنفّسي… لدينا مَن يجلبُها لكِ من كوريا.",
+        "ko": "이제 안심하세요. 한국에서 대신 담아 드릴 사람이 있으니까.",
+        "en": "Breathe. Someone will bring it from Korea for you."
+      },
+      "sub": {
+        "ar": "تنفّسي… نحنُ هنا",
+        "ko": "안심하세요, 우리가 있어요",
+        "en": "Breathe — we've got you"
+      }
+    }
+  ],
+  "endcard": {
+    "title": "Shop@KBridge",
+    "handle": "@shopatkbridge",
+    "sub": {
+      "ar": "لا مزيدَ من السلالِ الفارغة",
+      "ko": "더 이상 빈 장바구니는 없어요",
+      "en": "No more empty carts"
+    },
+    "small": {
+      "ar": "راسلينا الآن",
+      "ko": "지금 DM 하세요",
+      "en": "DM us now"
+    }
+  }
+}

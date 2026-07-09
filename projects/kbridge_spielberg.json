@@ -1,0 +1,101 @@
+{
+  "title": "Shop@KBridge — 스필버그 감독 버전 · 경외의 순간",
+  "prod_no": "BSK-20260709-12",
+  "slug": "kbridge_spielberg",
+  "style": "brandfilm",
+  "grade": "spielberg",
+  "music": "assets/music/emotional_orchestra_cc0.mp3",
+  "music_vol": 0.22,
+  "cover": { "tag": "سبيلبرغ", "hook": "لحظةُ الدهشة", "scene": "03" },
+  "scenes": [
+    {
+      "id": "01",
+      "media": "video",
+      "pexels_id": 9167965,
+      "narr": {
+        "ar": "في داخلِ كلِّ واحدةٍ منّا… حلمٌ ينظرُ إلى الأعلى.",
+        "ko": "우리 마음속엔, 늘 위를 올려다보는 꿈이 있죠.",
+        "en": "In each of us — a dream that keeps looking up."
+      },
+      "sub": {
+        "ar": "حلمٌ ينظرُ إلى الأعلى",
+        "ko": "위를 올려다보는 꿈",
+        "en": "A dream, looking up"
+      }
+    },
+    {
+      "id": "02",
+      "media": "video",
+      "pexels_id": 6650584,
+      "narr": {
+        "ar": "وبينكِ وبينه… ضوءٌ واحدٌ بعيد.",
+        "ko": "그리고 그 꿈과 나 사이엔, 멀리 빛나는 하나의 불빛.",
+        "en": "And between you and it — one distant light."
+      },
+      "sub": {
+        "ar": "ضوءٌ واحدٌ بعيد",
+        "ko": "멀리 빛나는 하나의 불빛",
+        "en": "One distant light"
+      }
+    },
+    {
+      "id": "03",
+      "media": "video",
+      "pexels_id": 31523704,
+      "narr": {
+        "ar": "إنّها كوريا… أقربُ ممّا تتخيّلين.",
+        "ko": "그건 한국. 생각보다 훨씬 가까이 있어요.",
+        "en": "It's Korea — closer than you imagine."
+      },
+      "sub": {
+        "ar": "إنّها كوريا",
+        "ko": "그건, 한국",
+        "en": "It's Korea"
+      }
+    },
+    {
+      "id": "04",
+      "media": "video",
+      "pexels_id": 4547598,
+      "narr": {
+        "ar": "نحملُ ذلك الضوء… إلى عتبةِ بابكِ.",
+        "ko": "우리가 그 빛을, 당신의 문 앞까지 가져다 드릴게요.",
+        "en": "We carry that light — right to your door."
+      },
+      "sub": {
+        "ar": "إلى عتبةِ بابكِ",
+        "ko": "당신의 문 앞까지",
+        "en": "To your door"
+      }
+    },
+    {
+      "id": "05",
+      "media": "video",
+      "pexels_id": 7551697,
+      "narr": {
+        "ar": "وتصبحُ الدهشةُ… بين يديكِ.",
+        "ko": "그리고 그 경이로움이, 당신의 손안에 담깁니다.",
+        "en": "And the wonder becomes yours to hold."
+      },
+      "sub": {
+        "ar": "بين يديكِ",
+        "ko": "당신의 손안에",
+        "en": "Yours to hold"
+      }
+    }
+  ],
+  "endcard": {
+    "title": "Shop@KBridge",
+    "handle": "@shopatkbridge",
+    "sub": {
+      "ar": "لحظةُ دهشتِكِ تبدأ من هنا",
+      "ko": "당신의 경외가 시작되는 곳",
+      "en": "Where your wonder begins"
+    },
+    "small": {
+      "ar": "راسلينا الآن",
+      "ko": "지금 DM 하세요",
+      "en": "DM us now"
+    }
+  }
+}

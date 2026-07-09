@@ -1,0 +1,101 @@
+{
+  "title": "Shop@KBridge — 코믹 버전 · 참을 수 없는 쇼핑",
+  "prod_no": "BSK-20260709-14",
+  "slug": "kbridge_comic",
+  "style": "brandfilm",
+  "grade": "comic",
+  "music": "assets/music/happy_tune_cc0.mp3",
+  "music_vol": 0.22,
+  "cover": { "tag": "كوميدي", "hook": "شغفٌ لا يُقاوَم", "scene": "03" },
+  "scenes": [
+    {
+      "id": "01",
+      "media": "video",
+      "pexels_id": 19985682,
+      "narr": {
+        "ar": "لحظة! هل سمعتِ ذلك؟ كوريا تُناديكِ.",
+        "ko": "잠깐! 방금 들었어요? 한국이 당신을 부르고 있어요.",
+        "en": "Wait — did you hear that? Korea is calling you."
+      },
+      "sub": {
+        "ar": "كوريا تُناديكِ!",
+        "ko": "한국이 부른다!",
+        "en": "Korea is calling!"
+      }
+    },
+    {
+      "id": "02",
+      "media": "video",
+      "pexels_id": 14914854,
+      "narr": {
+        "ar": "لكن… «لا يُشحَنُ إلى بلدكِ»؟! ليس اليوم.",
+        "ko": "그런데… '해당 국가 배송 불가'?! 오늘은 안 되죠.",
+        "en": "But… 'doesn't ship to your country'?! Not today."
+      },
+      "sub": {
+        "ar": "لا يُشحَن؟! مستحيل",
+        "ko": "배송 불가?! 안 될 말",
+        "en": "Won't ship?! No way"
+      }
+    },
+    {
+      "id": "03",
+      "media": "video",
+      "pexels_id": 5924987,
+      "narr": {
+        "ar": "همسةٌ صغيرة… ونحن نتكفّلُ بالباقي.",
+        "ko": "메시지 하나면, 나머진 우리가 다 해결해요.",
+        "en": "One little message — and we handle the rest."
+      },
+      "sub": {
+        "ar": "ونحن نتكفّلُ بالباقي",
+        "ko": "나머진 우리가",
+        "en": "We handle the rest"
+      }
+    },
+    {
+      "id": "04",
+      "media": "video",
+      "pexels_id": 8516631,
+      "narr": {
+        "ar": "من رفوفِ سيول… إلى بابكِ مباشرة.",
+        "ko": "서울의 진열대에서, 당신 문 앞으로 곧장.",
+        "en": "From Seoul's shelves — straight to your door."
+      },
+      "sub": {
+        "ar": "إلى بابكِ مباشرة",
+        "ko": "곧장 문 앞으로",
+        "en": "Straight to your door"
+      }
+    },
+    {
+      "id": "05",
+      "media": "video",
+      "pexels_id": 8992078,
+      "narr": {
+        "ar": "فتفضّلي… وارقصي. لقد استحققتِها.",
+        "ko": "그러니 마음껏, 춤추세요. 충분히 누릴 자격 있으니까.",
+        "en": "So go ahead — dance. You've earned it."
+      },
+      "sub": {
+        "ar": "لقد استحققتِها",
+        "ko": "누릴 자격 있어요",
+        "en": "You've earned it"
+      }
+    }
+  ],
+  "endcard": {
+    "title": "Shop@KBridge",
+    "handle": "@shopatkbridge",
+    "sub": {
+      "ar": "متعتُكِ الكوريّةُ تبدأ هنا",
+      "ko": "당신의 한국 쇼핑, 여기서",
+      "en": "Your Korea, made easy"
+    },
+    "small": {
+      "ar": "راسلينا الآن",
+      "ko": "지금 DM 하세요",
+      "en": "DM us now"
+    }
+  }
+}
