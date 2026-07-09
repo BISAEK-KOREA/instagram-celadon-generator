@@ -1,0 +1,138 @@
+{
+  "title": "리나의 편지 — 한국에 사는 너의 친구",
+  "prod_no": "BSK-20260709-07",
+  "slug": "lina_letter",
+  "cover": {
+    "tag": "رسالة من سيول",
+    "hook": "صديقتكِ التي تسكن في كوريا",
+    "scene": "02"
+  },
+  "scenes": [
+    {
+      "id": "01",
+      "media": "video",
+      "q": "woman watching phone night bed",
+      "pexels_id": 6598883,
+      "narr": {
+        "ar": "هل تعلمين؟ أنا كنتُ مثلكِ تمامًا… أسهر الليل أشاهد الدراما الكوريّة، وأحلم بسيول من غرفتي الصغيرة.",
+        "ko": "있잖아요, 나도 당신과 똑같았어요. 밤새 한국 드라마를 보며, 작은 방에서 서울을 꿈꿨죠.",
+        "en": "You know what? I was just like you — up all night watching K-dramas, dreaming of Seoul from my little room."
+      },
+      "sub": {
+        "ar": "كنتُ مثلكِ تمامًا",
+        "ko": "나도 당신과 같았어요",
+        "en": "I was just like you"
+      }
+    },
+    {
+      "id": "02",
+      "media": "video",
+      "q": "seoul tower cherry blossom",
+      "pexels_id": 36949144,
+      "narr": {
+        "ar": "لكنّ الحلم كبر معي… انتقلتُ إلى سيول، وبعد سنواتٍ أصبحتُ كوريّةً رسميًّا. اليوم كوريا ليست حلمي… بل وطني.",
+        "ko": "그 꿈은 저와 함께 자랐어요. 서울로 왔고, 몇 년 뒤엔 정식으로 한국인이 됐죠. 이제 한국은 꿈이 아니라 제 집이에요.",
+        "en": "The dream grew with me — I moved to Seoul, and years later I officially became Korean. Today Korea isn't my dream, it's my home."
+      },
+      "sub": {
+        "ar": "اليوم… كوريا وطني",
+        "ko": "이제 한국은 내 집",
+        "en": "Now Korea is my home"
+      }
+    },
+    {
+      "id": "03",
+      "media": "video",
+      "q": "woman packing box home order",
+      "pexels_id": 6342201,
+      "narr": {
+        "ar": "وعملي؟ هو الحلم نفسه: أشتري لصديقاتي حول العالم كلَّ ما يتمنّينه من كوريا، وأغلّفه لهنّ بيدي.",
+        "ko": "제 일은 꿈 그 자체예요. 전 세계 친구들이 원하는 한국 물건을 사서, 제 손으로 직접 포장해 보내죠.",
+        "en": "And my job? It's the dream itself — buying whatever my friends around the world wish for from Korea, and packing it with my own hands."
+      },
+      "sub": {
+        "ar": "هذا عملي… وشغفي",
+        "ko": "이게 내 일이자 설렘",
+        "en": "My job — and my joy"
+      }
+    },
+    {
+      "id": "04",
+      "media": "video",
+      "q": "concert lightstick crowd",
+      "pexels_id": 35340079,
+      "narr": {
+        "ar": "ربّما تحلمين بكريمٍ معيّن… أو ألبوم فرقتكِ المفضّلة… أو شيءٍ رأيتِه مرّةً ولا تعرفين حتى اسمه.",
+        "ko": "당신이 원하는 건 화장품일 수도, 최애의 앨범일 수도, 이름조차 모르는 그 무엇일 수도 있어요.",
+        "en": "Maybe you dream of a certain cream… your favorite group's album… or something you saw once and don't even know its name."
+      },
+      "sub": {
+        "ar": "مهما كان حلمكِ",
+        "ko": "그게 무엇이든",
+        "en": "Whatever your dream is"
+      }
+    },
+    {
+      "id": "05",
+      "media": "video",
+      "q": "women laughing coffee together",
+      "pexels_id": 6912098,
+      "narr": {
+        "ar": "لن أقول لكِ إنّ كلّ شيءٍ ممكن. لكنّي أعِدكِ: سأسمعكِ دائمًا، وأبحث لكِ بكلّ قلبي — كصديقةٍ، لا كمتجر.",
+        "ko": "다 된다고 장담하진 않을게요. 하지만 약속해요 — 언제나 듣고, 온 마음으로 찾아볼게요. 상점이 아닌 친구로서.",
+        "en": "I won't tell you everything is possible. But I promise: I'll always listen, and search with all my heart — as a friend, not a store."
+      },
+      "sub": {
+        "ar": "أعدكِ… كصديقة",
+        "ko": "친구로서 약속해요",
+        "en": "A friend's promise"
+      }
+    },
+    {
+      "id": "06",
+      "media": "video",
+      "q": "woman walking alley warm",
+      "pexels_id": 36443759,
+      "narr": {
+        "ar": "فأنا لستُ مجرّد حساب تسوّق… أنا صديقتكِ التي تسكن في كوريا. اسمي لينا.",
+        "ko": "전 그냥 쇼핑 계정이 아니에요. 한국에 사는 당신의 친구, 리나예요.",
+        "en": "I'm not just a shopping account — I'm your friend who lives in Korea. My name is Lina."
+      },
+      "sub": {
+        "ar": "صديقتكِ في كوريا — لينا",
+        "ko": "한국의 친구, 리나",
+        "en": "Your friend in Korea — Lina"
+      }
+    },
+    {
+      "id": "07",
+      "media": "video",
+      "q": "hijab woman ferry sea",
+      "pexels_id": 29130858,
+      "narr": {
+        "ar": "يا صديقتي… وسّعي أحلامكِ أكثر. أخبريني: ماذا تريدين من كوريا؟ أنا هنا… وأنتظر رسالتكِ.",
+        "ko": "친구야, 꿈의 범위를 더 넓혀봐요. 말해줘요 — 한국에서 뭘 원하는지. 난 여기서 당신의 메시지를 기다려요.",
+        "en": "My friend, dream a little bigger. Tell me — what do you want from Korea? I'm here, waiting for your message."
+      },
+      "sub": {
+        "ar": "أنا هنا @shopatkbridge",
+        "ko": "여기 있어요 @shopatkbridge",
+        "en": "I'm here @shopatkbridge"
+      }
+    }
+  ],
+  "endcard": {
+    "title": "Lina",
+    "handle": "@shopatkbridge",
+    "sub": {
+      "ar": "صديقتكِ التي تسكن في كوريا",
+      "ko": "한국에 사는 당신의 친구",
+      "en": "Your friend living in Korea"
+    },
+    "small": {
+      "ar": "راسليني بما تحلمين به — من كوريا إلى بابكِ",
+      "ko": "꿈꾸는 것을 DM 하세요 — 한국에서 문 앞까지",
+      "en": "DM me your dream — from Korea to your door"
+    }
+  }
+}
