@@ -1,0 +1,74 @@
+{
+  "title": "인도영화 버전 — 한국과의 러브스토리",
+  "prod_no": "BSK-20260709-10",
+  "slug": "kbridge_masala",
+  "style": "brandfilm",
+  "music": "assets/music/tabla_jam_by_eliasartista.mp3",
+  "music_vol": "0.24",
+  "cover": {
+    "tag": "بأسلوب بوليوود",
+    "hook": "قصّة حبٍّ مع كوريا",
+    "scene": "02"
+  },
+  "scenes": [
+    {
+      "id": "01", "media": "video", "q": "holi festival colors crowd", "pexels_id": 34580612,
+      "narr": {
+        "ar": "يقولون إنّ القلبَ… يريدُ ما يريد!",
+        "ko": "마음은 원하는 걸 원하는 법이라죠!",
+        "en": "They say the heart wants what it wants!"
+      },
+      "sub": {"ar": "القلب يريد ما يريد!", "ko": "마음이 원하는 대로!", "en": "The heart wants what it wants!"}
+    },
+    {
+      "id": "02", "media": "video", "q": "folk dancer colorful dress", "pexels_id": 13189482,
+      "narr": {
+        "ar": "وقلبكِ اختار كوريا… فلترقصِ الألوان!",
+        "ko": "당신의 마음은 한국을 골랐죠 — 색들아, 춤춰라!",
+        "en": "And your heart chose Korea — so let the colors dance!"
+      },
+      "sub": {"ar": "فلترقص الألوان!", "ko": "색들아, 춤춰라!", "en": "Let the colors dance!"}
+    },
+    {
+      "id": "03", "media": "video", "q": "red lanterns festival", "pexels_id": 31523704,
+      "narr": {
+        "ar": "من مهرجانات الفوانيس… إلى أحدث صيحات الجمال — كلُّ كوريا تناديكِ!",
+        "ko": "등불 축제부터 최신 뷰티까지 — 한국 전체가 당신을 불러요!",
+        "en": "From lantern festivals to the latest beauty — all of Korea is calling you!"
+      },
+      "sub": {"ar": "كوريا تناديكِ!", "ko": "한국이 불러요!", "en": "Korea is calling!"}
+    },
+    {
+      "id": "04", "media": "video", "q": "confetti party celebration", "pexels_id": 7119932,
+      "narr": {
+        "ar": "وحين يدقُّ الساعي بابكِ… يبدأ الاحتفال!",
+        "ko": "택배가 문을 두드리는 순간 — 축제가 시작돼요!",
+        "en": "And when the parcel knocks — the celebration begins!"
+      },
+      "sub": {"ar": "يبدأ الاحتفال!", "ko": "축제의 시작!", "en": "Let the celebration begin!"}
+    },
+    {
+      "id": "05", "media": "video", "q": "colorful gift boxes bright", "pexels_id": 7763665,
+      "narr": {
+        "ar": "قصّةُ حبٍّ بين قلبكِ وكوريا… ونحن ساعي البريد بينكما!",
+        "ko": "당신과 한국의 러브스토리 — 우리는 그 사이의 우체부예요!",
+        "en": "A love story between your heart and Korea — and we're the messenger!"
+      },
+      "sub": {"ar": "ونحن الرسول بينكما", "ko": "러브스토리의 우체부", "en": "We're the messenger"}
+    }
+  ],
+  "endcard": {
+    "title": "Shop@KBridge",
+    "handle": "@shopatkbridge",
+    "sub": {
+      "ar": "قصّتكِ مع كوريا تبدأ هنا",
+      "ko": "당신과 한국의 러브스토리",
+      "en": "Your love story with Korea"
+    },
+    "small": {
+      "ar": "راسلينا الآن",
+      "ko": "지금 DM 하세요",
+      "en": "DM us now"
+    }
+  }
+}

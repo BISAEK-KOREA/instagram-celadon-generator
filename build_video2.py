@@ -43,7 +43,7 @@ ACCENT = (233, 183, 183)        # 로즈 블러시 액센트
 DARK = (24, 13, 16)             # 따뜻한 다크 (그라데이션/스트로크)
 XFADE = 0.5                     # 장면 전환 길이(초)
 MUSIC = os.path.join(PROJECT, "assets", "music", "evening_sunset_cc0.mp3")
-MUSIC_VOL = 0.20
+MUSIC_VOL = 0.20                # 프로젝트 JSON의 "music"/"music_vol"로 덮어쓸 수 있음
 
 _pj = os.environ.get("PROJECT_JSON")
 if not _pj:
@@ -55,6 +55,10 @@ PROD_NO = _meta.get("prod_no", "")
 SLUG = _meta.get("slug", "reel")
 COVER = _meta.get("cover")
 ENDCARD = _meta.get("endcard")  # {"title","sub":{lang},"handle","small":{lang}} 없으면 생략
+if _meta.get("music"):
+    MUSIC = _meta["music"] if os.path.isabs(_meta["music"]) else os.path.join(PROJECT, _meta["music"])
+if _meta.get("music_vol"):
+    MUSIC_VOL = float(_meta["music_vol"])
 
 
 def _slug(q):

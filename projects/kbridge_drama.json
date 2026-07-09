@@ -1,0 +1,74 @@
+{
+  "title": "한국드라마 버전 — 당신이 주인공",
+  "prod_no": "BSK-20260709-11",
+  "slug": "kbridge_drama",
+  "style": "brandfilm",
+  "music": "assets/music/melancholy_piano_cc0.mp3",
+  "music_vol": "0.20",
+  "cover": {
+    "tag": "بأسلوب الدراما الكوريّة",
+    "hook": "أنتِ البطلة",
+    "scene": "02"
+  },
+  "scenes": [
+    {
+      "id": "01", "media": "video", "q": "rain window night bokeh", "pexels_id": 31069867,
+      "narr": {
+        "ar": "في كلّ دراما كوريّة… هناك لقاءٌ واحدٌ يغيّر كلَّ شيء.",
+        "ko": "모든 한국 드라마엔, 모든 걸 바꾸는 만남이 하나 있죠.",
+        "en": "In every K-drama, there's one meeting that changes everything."
+      },
+      "sub": {"ar": "في كلّ دراما…", "ko": "모든 드라마엔…", "en": "In every drama…"}
+    },
+    {
+      "id": "02", "media": "video", "q": "korea rainy street neon umbrella", "pexels_id": 38489828,
+      "narr": {
+        "ar": "لقاؤنا نحن… لن يكون صدفةً تحت المطر.",
+        "ko": "우리의 만남은, 빗속의 우연이 아닐 거예요.",
+        "en": "Ours won't be a chance meeting in the rain."
+      },
+      "sub": {"ar": "ليس صدفةً تحت المطر", "ko": "빗속의 우연이 아닌", "en": "Not a chance meeting"}
+    },
+    {
+      "id": "03", "media": "video", "q": "hand writing letter paper", "pexels_id": 20413409,
+      "narr": {
+        "ar": "بل سيبدأ… برسالةٍ صغيرةٍ تكتبينها لي.",
+        "ko": "당신이 보내는 작은 메시지 하나로, 시작되죠.",
+        "en": "It begins with a small message you write to me."
+      },
+      "sub": {"ar": "يبدأ برسالةٍ صغيرة", "ko": "메시지 하나로", "en": "It begins with a message"}
+    },
+    {
+      "id": "04", "media": "video", "q": "woman umbrella night crossing", "pexels_id": 36585943,
+      "narr": {
+        "ar": "وسأمشي لأجلكِ في مطر سيول… لأجدَ ما يُسعِدُ قلبكِ.",
+        "ko": "당신을 위해 서울의 비를 걸을게요 — 당신 마음을 밝혀줄 그것을 찾아서.",
+        "en": "For you, I'll walk through Seoul's rain to find what makes your heart glow."
+      },
+      "sub": {"ar": "مهما كان الطقس", "ko": "빗속이라도", "en": "Whatever the weather"}
+    },
+    {
+      "id": "05", "media": "video", "q": "cozy window tea candle book", "pexels_id": 14585736,
+      "narr": {
+        "ar": "لأنّ في هذه القصّة… أنتِ البطلة.",
+        "ko": "이 이야기의 주인공은, 바로 당신이니까요.",
+        "en": "Because in this story — you are the heroine."
+      },
+      "sub": {"ar": "أنتِ البطلة", "ko": "주인공은 당신", "en": "You are the heroine"}
+    }
+  ],
+  "endcard": {
+    "title": "Shop@KBridge",
+    "handle": "@shopatkbridge",
+    "sub": {
+      "ar": "قصّتكِ الكوريّة تبدأ الآن",
+      "ko": "당신의 한국 이야기, 지금 시작",
+      "en": "Your Korean story begins now"
+    },
+    "small": {
+      "ar": "راسلينا الآن",
+      "ko": "지금 DM 하세요",
+      "en": "DM us now"
+    }
+  }
+}
