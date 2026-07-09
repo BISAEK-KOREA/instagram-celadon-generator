@@ -4,7 +4,8 @@
   "slug": "kbridge_service",
   "cover": {
     "tag": "خدمة موثوقة",
-    "hook": "مشترياتكِ من كوريا حتى باب بيتك"
+    "hook": "مشترياتكِ من كوريا حتى باب بيتك",
+    "scene": "04"
   },
   "scenes": [
     {
@@ -20,7 +21,8 @@
         "ar": "من كوريا إلى بابكِ",
         "ko": "한국에서 문 앞까지",
         "en": "Korea to your door"
-      }
+      },
+      "pexels_id": 32214387
     },
     {
       "id": "02",
@@ -35,7 +37,8 @@
         "ar": "مقلّد؟ لا يشحن؟",
         "ko": "가품? 배송불가?",
         "en": "Fakes? No shipping?"
-      }
+      },
+      "pexels_id": 6245807
     },
     {
       "id": "03",
@@ -50,7 +53,8 @@
         "ar": "شريكتكِ في كوريا",
         "ko": "한국의 쇼핑 파트너",
         "en": "Your partner in Korea"
-      }
+      },
+      "pexels_id": 7754530
     },
     {
       "id": "04",
@@ -65,7 +69,8 @@
         "ar": "كلّ ما في كوريا",
         "ko": "한국의 모든 것",
         "en": "Everything Korea"
-      }
+      },
+      "pexels_id": 8131892
     },
     {
       "id": "05",
@@ -97,7 +102,8 @@
           "2. Bought authentic in Korea",
           "3. Delivered to your door"
         ]
-      }
+      },
+      "pexels_photo_id": 28651871
     },
     {
       "id": "06",
@@ -112,7 +118,8 @@
         "ar": "ثقةٌ وعناية",
         "ko": "믿음과 정성",
         "en": "Trust & care"
-      }
+      },
+      "pexels_id": 5974519
     },
     {
       "id": "07",
@@ -127,7 +134,8 @@
         "ar": "شحنٌ سريعٌ وآمن",
         "ko": "빠르고 안전한 배송",
         "en": "Fast & safe shipping"
-      }
+      },
+      "pexels_id": 11184344
     },
     {
       "id": "08",
@@ -142,7 +150,22 @@
         "ar": "راسليها الآن @shopatkbridge",
         "ko": "지금 DM @shopatkbridge",
         "en": "DM now @shopatkbridge"
-      }
+      },
+      "pexels_id": 6213994
     }
-  ]
+  ],
+  "endcard": {
+    "title": "Shop@KBridge",
+    "handle": "@shopatkbridge",
+    "sub": {
+      "ar": "شريكتكِ الموثوقة للتسوّق من كوريا",
+      "ko": "믿을 수 있는 한국 쇼핑 파트너",
+      "en": "Your trusted Korean shopping partner"
+    },
+    "small": {
+      "ar": "راسليها الآن — شحن إلى السعودية ودول الخليج",
+      "ko": "지금 DM 하세요 — 사우디·걸프 배송",
+      "en": "DM now — shipping to Saudi & the Gulf"
+    }
+  }
 }
