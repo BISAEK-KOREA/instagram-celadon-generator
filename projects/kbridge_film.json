@@ -1,0 +1,123 @@
+{
+  "title": "Shop@KBridge 브랜드 필름 — 당신의 한국행 다리",
+  "prod_no": "BSK-20260709-08",
+  "slug": "kbridge_film",
+  "style": "brandfilm",
+  "cover": {
+    "tag": "من سيول",
+    "hook": "جسركِ إلى كوريا",
+    "scene": "03"
+  },
+  "scenes": [
+    {
+      "id": "01",
+      "media": "video",
+      "q": "city aerial night traffic",
+      "pexels_id": 36826017,
+      "narr": {
+        "ar": "بينكِ وبين ما تحبّين… ثمانية آلاف كيلومتر.",
+        "ko": "당신과 좋아하는 것 사이, 팔천 킬로미터.",
+        "en": "Between you and what you love — eight thousand kilometers."
+      },
+      "sub": {
+        "ar": "٨٬٠٠٠ كيلومتر",
+        "ko": "8,000 km",
+        "en": "8,000 km"
+      }
+    },
+    {
+      "id": "02",
+      "media": "video",
+      "q": "concert silhouette lights",
+      "pexels_id": 7722989,
+      "narr": {
+        "ar": "لكنّ الشغف… لا يعرف المسافة.",
+        "ko": "하지만 설렘에는, 거리가 없죠.",
+        "en": "But passion knows no distance."
+      },
+      "sub": {
+        "ar": "الشغف لا يعرف المسافة",
+        "ko": "설렘엔 거리가 없다",
+        "en": "Passion knows no distance"
+      }
+    },
+    {
+      "id": "03",
+      "media": "video",
+      "q": "korean traditional costume palace",
+      "pexels_id": 30012658,
+      "narr": {
+        "ar": "كوريا التي تحلمين بها… حقيقيّةٌ، وأقرب ممّا تظنّين.",
+        "ko": "당신이 꿈꾸는 한국은, 생각보다 가까이 있어요.",
+        "en": "The Korea you dream of is real — and closer than you think."
+      },
+      "sub": {
+        "ar": "كوريا التي تحلمين بها",
+        "ko": "당신이 꿈꾸는 한국",
+        "en": "The Korea you dream of"
+      }
+    },
+    {
+      "id": "04",
+      "media": "video",
+      "q": "tissue paper wrapping bag hands",
+      "pexels_id": 7308222,
+      "narr": {
+        "ar": "كلُّ طلبٍ يُختارُ بعناية… ويُغلَّفُ بحبّ.",
+        "ko": "모든 주문은 정성으로 고르고, 마음으로 담아요.",
+        "en": "Every order — chosen with care, wrapped with love."
+      },
+      "sub": {
+        "ar": "يُختار بعناية… يُغلّف بحبّ",
+        "ko": "정성으로 고르고, 마음으로 담다",
+        "en": "Chosen with care, wrapped with love"
+      }
+    },
+    {
+      "id": "05",
+      "media": "video",
+      "q": "airplane wing dusk city",
+      "pexels_id": 17804140,
+      "narr": {
+        "ar": "ثمّ يعبرُ نصفَ العالم… ليصلَ إليكِ.",
+        "ko": "그리고 세상을 건너, 당신에게 갑니다.",
+        "en": "Then it crosses the world — to reach you."
+      },
+      "sub": {
+        "ar": "ويعبر العالم إليكِ",
+        "ko": "세상을 건너, 당신에게",
+        "en": "Across the world, to you"
+      }
+    },
+    {
+      "id": "06",
+      "media": "video",
+      "q": "woman holding kraft parcel calm",
+      "pexels_id": 8938178,
+      "narr": {
+        "ar": "من سيول… إلى باب بيتكِ.",
+        "ko": "서울에서, 당신의 문 앞까지.",
+        "en": "From Seoul, to your door."
+      },
+      "sub": {
+        "ar": "من سيول… إلى بابكِ",
+        "ko": "서울에서, 문 앞까지",
+        "en": "From Seoul, to your door"
+      }
+    }
+  ],
+  "endcard": {
+    "title": "Shop@KBridge",
+    "handle": "@shopatkbridge",
+    "sub": {
+      "ar": "جسركِ إلى كوريا",
+      "ko": "당신의 한국행 다리",
+      "en": "Your bridge to Korea"
+    },
+    "small": {
+      "ar": "راسلينا الآن",
+      "ko": "지금 DM 하세요",
+      "en": "DM us now"
+    }
+  }
+}

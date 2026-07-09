@@ -128,7 +128,47 @@ def _grad(d, y0, y1, color, a_from, a_to):
         d.line([(0, y), (W, y)], fill=color + (int(a_from + (a_to - a_from) * t),))
 
 
+def make_overlay_brandfilm(scene):
+    """삼성/LG 광고식: 화면 중앙 대형 타이포, 카드/하단자막 없음, 전면 은은한 스크림."""
+    ov = Image.new("RGBA", (W, H), (0, 0, 0, 55))   # 전면 얇은 스크림(글자 가독)
+    d = ImageDraw.Draw(ov)
+    rtl = (LANG == "ar")
+    akw = gp._arabic_draw_kwargs() if rtl else {}
+    font_path = gp.FONT_AR_PATH if rtl else gp.FONT_KO_PATH
+    wrap = gp.wrap_arabic if rtl else gp.wrap_korean
+
+    bf = gp.load_variable_font(gp.FONT_KO_PATH, 30, "Regular")
+    d.text((W - 44 - d.textlength(BRAND, font=bf), 46), BRAND, font=bf, fill=(255, 255, 255, 170))
+    if PROD_NO:
+        pnf = gp.load_variable_font(gp.FONT_KO_PATH, 22, "Regular")
+        d.text((44, 50), PROD_NO, font=pnf, fill=(255, 255, 255, 110))
+
+    # 상단 작은 브랜드 아이브로우 (레터스페이스 느낌의 라틴 소형 캡션)
+    ef = gp.load_variable_font(gp.FONT_KO_PATH, 30, "Regular")
+    eyebrow = "S H O P @ K B R I D G E"
+    d.text((W / 2 - d.textlength(eyebrow, font=ef) / 2, int(H * 0.30)), eyebrow,
+           font=ef, fill=(255, 255, 255, 150))
+
+    # 중앙 대형 카피
+    sub = scene["sub"][LANG]
+    sfont = gp.load_variable_font(font_path, 88 if rtl else 76, "Bold")
+    lines = wrap(d, sub, sfont, int(W * 0.84))
+    lh = (88 if rtl else 76) + 26
+    y0 = H / 2 - (len(lines) * lh) / 2 - 20
+    gp.draw_centered_multiline(d, lines, sfont, W / 2, y0, fill=(255, 255, 255),
+                               line_gap=26, stroke_width=2, stroke_fill=(10, 8, 10),
+                               extra_draw_kwargs=akw)
+    d.line([(W / 2 - 60, y0 + len(lines) * lh + 40), (W / 2 + 60, y0 + len(lines) * lh + 40)],
+           fill=ACCENT + (220,), width=3)
+
+    p = os.path.join(OUT, f"ov2_{LANG}_{SLUG}_{scene['id']}.png")
+    ov.save(p, "PNG")
+    return p
+
+
 def make_overlay(scene):
+    if _meta.get("style") == "brandfilm":
+        return make_overlay_brandfilm(scene)
     ov = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(ov)
     rtl = (LANG == "ar")
