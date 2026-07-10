@@ -1,0 +1,146 @@
+{
+  "title": "Lina · Shop@KBridge — 고객 여정 광고 · 문의부터 문 앞까지",
+  "prod_no": "BSK-20260710-22",
+  "slug": "kbridge_journey",
+  "style": "brandfilm",
+  "grade": "luxury",
+  "music": "assets/music/evening_sunset_cc0.mp3",
+  "music_vol": 0.2,
+  "cover": { "tag": "من الطلب إلى باب بيتكِ", "hook": "رحلة تسوقكِ من كوريا", "scene": "01" },
+  "scenes": [
+    {
+      "id": "01",
+      "media": "video",
+      "pexels_id": 38035115,
+      "narr": {
+        "ar": "من قلب كوريا… كل ما تحلمين به، أقرب مما تظنين.",
+        "ko": "한국의 심장에서. 당신이 꿈꾸는 모든 것이 생각보다 가까이 있어요.",
+        "en": "From the heart of Korea — everything you dream of, closer than you think."
+      },
+      "sub": {
+        "ar": "كل ما تحلمين به من كوريا",
+        "ko": "꿈꾸는 모든 것, 한국에서",
+        "en": "Everything You Dream of, from Korea"
+      }
+    },
+    {
+      "id": "02",
+      "media": "video",
+      "pexels_id": 7392948,
+      "narr": {
+        "ar": "تبدأ الرحلة برسالة واحدة… أرسلي قائمتكِ فقط.",
+        "ko": "여정은 메시지 하나로 시작됩니다. 쇼핑 리스트만 보내주세요.",
+        "en": "It all starts with one message — just send your list."
+      },
+      "sub": {
+        "ar": "الخطوة الأولى: راسلينا",
+        "ko": "1단계 · 문의",
+        "en": "Step 1 · Send Your List"
+      }
+    },
+    {
+      "id": "03",
+      "media": "video",
+      "pexels_id": 7191325,
+      "narr": {
+        "ar": "وتصلكِ التسعيرة واضحة… أسعار شفافة، بلا مفاجآت.",
+        "ko": "곧 투명한 견적이 도착해요. 숨은 비용 없이.",
+        "en": "You get a clear quote — honest prices, no surprises."
+      },
+      "sub": {
+        "ar": "الخطوة الثانية: تسعيرة واضحة",
+        "ko": "2단계 · 투명한 견적",
+        "en": "Step 2 · A Clear Quote"
+      }
+    },
+    {
+      "id": "04",
+      "media": "video",
+      "pexels_id": 7754528,
+      "narr": {
+        "ar": "ثم تتسوق لينا من أجلكِ… من متاجر كوريا نفسها.",
+        "ko": "그리고 리나가 한국 현지 매장에서 직접 쇼핑합니다.",
+        "en": "Then Lina shops for you — in Korea's own stores."
+      },
+      "sub": {
+        "ar": "الخطوة الثالثة: التسوق في كوريا",
+        "ko": "3단계 · 현지 쇼핑",
+        "en": "Step 3 · Shopped in Korea"
+      }
+    },
+    {
+      "id": "05",
+      "media": "video",
+      "pexels_id": 7250844,
+      "narr": {
+        "ar": "كل قطعة تُفحص بيدها… أصلية وبحالة مثالية.",
+        "ko": "모든 상품을 손으로 직접 검수해요. 정품만, 완벽한 상태로.",
+        "en": "Every item is checked by hand — authentic and flawless."
+      },
+      "sub": {
+        "ar": "الخطوة الرابعة: فحص دقيق",
+        "ko": "4단계 · 꼼꼼한 검수",
+        "en": "Step 4 · Inspected by Hand"
+      }
+    },
+    {
+      "id": "06",
+      "media": "video",
+      "pexels_id": 7855152,
+      "narr": {
+        "ar": "وتُغلّف طلباتكِ بعناية… كهدية من صديقة.",
+        "ko": "그리고 친구가 보내는 선물처럼 정성껏 포장하죠.",
+        "en": "And packed with care — like a gift from a friend."
+      },
+      "sub": {
+        "ar": "الخطوة الخامسة: تغليف بعناية",
+        "ko": "5단계 · 정성 포장",
+        "en": "Step 5 · Packed with Care"
+      }
+    },
+    {
+      "id": "07",
+      "media": "video",
+      "pexels_id": 32252766,
+      "narr": {
+        "ar": "لتطير من كوريا… إلى باب بيتكِ أينما كنتِ.",
+        "ko": "한국에서 출발해, 어디에 계시든 문 앞까지.",
+        "en": "Then it flies from Korea — straight to your door."
+      },
+      "sub": {
+        "ar": "الخطوة السادسة: شحن دولي",
+        "ko": "6단계 · 안심 국제배송",
+        "en": "Step 6 · Shipped Worldwide"
+      }
+    },
+    {
+      "id": "08",
+      "media": "video",
+      "pexels_id": 6898098,
+      "narr": {
+        "ar": "لحظة الوصول… فرحة تستحقين أن تعيشيها بثقة.",
+        "ko": "도착의 순간, 믿고 기다린 만큼의 설렘을 누리세요.",
+        "en": "And when it arrives — pure joy, worth the trust."
+      },
+      "sub": {
+        "ar": "فرحتكِ وصلت",
+        "ko": "설렘이 도착했어요",
+        "en": "Your Joy, Delivered"
+      }
+    }
+  ],
+  "endcard": {
+    "title": "Shop@KBridge",
+    "handle": "@shopatkbridge",
+    "sub": {
+      "ar": "لينا — رحلة تسوقكِ الكورية تبدأ هنا",
+      "ko": "리나 — 당신의 한국 쇼핑 여정이 시작되는 곳",
+      "en": "Lina — Your Korean Shopping Journey Starts Here"
+    },
+    "small": {
+      "ar": "راسلينا اليوم",
+      "ko": "지금 DM으로 문의하세요",
+      "en": "Message us today"
+    }
+  }
+}

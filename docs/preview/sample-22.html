@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>샘플 BSK-20260710-22 — 고객 여정 광고</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin:0; background:#2a1e1a; color:#f6efe9; font-family:-apple-system,"Segoe UI",Tahoma,sans-serif;
+    display:flex; flex-direction:column; align-items:center; min-height:100vh; padding:20px 12px; box-sizing:border-box; }
+  .pno { font-size:12px; letter-spacing:1px; opacity:.6; }
+  h1 { font-size:18px; font-weight:600; margin:2px 0; text-align:center; }
+  p.sub { font-size:13px; opacity:.7; margin:0 0 14px; text-align:center; }
+  .tabs { display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap; justify-content:center; }
+  .tabs button { border:1px solid rgba(233,183,183,.4); background:transparent; color:#f6efe9;
+    padding:8px 18px; border-radius:999px; font-size:14px; cursor:pointer; }
+  .tabs button.active { background:#e9b7b7; color:#3a2018; border-color:#e9b7b7; font-weight:600; }
+  video { width:100%; max-width:380px; border-radius:16px; box-shadow:0 8px 30px rgba(0,0,0,.5); background:#000; }
+  .info { max-width:380px; font-size:13px; opacity:.9; margin-top:16px; line-height:1.7; }
+  .info b { color:#e9c99a; }
+  .brand { margin-top:20px; font-size:12px; opacity:.5; }
+</style>
+</head>
+<body>
+  <div class="pno">제작번호 · BSK-20260710-22 · Lina · Shop@KBridge (고객 여정 광고)</div>
+  <h1>문의부터 문 앞까지 — 고객 여정 버전</h1>
+  <p class="sub">한국의 밤 → 문의 → 견적 → 현지 쇼핑 → 검수 → 포장 → 배송 → 수령의 기쁨 · 비공개 미리보기</p>
+
+  <div class="tabs">
+    <button id="btn-ar" class="active" onclick="pick('ar')">🇸🇦 아랍어</button>
+    <button id="btn-ko" onclick="pick('ko')">🇰🇷 한국어</button>
+    <button id="btn-en" onclick="pick('en')">🇬🇧 English</button>
+  </div>
+
+  <video id="player" controls playsinline preload="metadata" poster="kbridge_journey_cover.png">
+    <source id="src" src="kbridge_journey_reel_ar.mp4" type="video/mp4">
+  </video>
+
+  <div class="info">
+    <b>카피 흐름:</b> 꿈꾸는 모든 것이 한국에 → 1단계 문의(리스트 전송) → 2단계 투명한 견적 → 3단계 현지 매장 쇼핑 → 4단계 손 검수 → 5단계 선물 같은 포장 → 6단계 국제배송 → 도착의 설렘 → CTA<br>
+    <b>스타일:</b> 21번과 같은 럭셔리 톤(화이트·블러시 핑크·골드, luxury 그레이드) — 이번엔 서비스 프로세스를 단계별로 보여주는 구성. 리나 역 배우는 21번과 동일 인물로 연속성 유지<br>
+    <b>음악:</b> Evening Sunset (CC0) · 저작자 표기 불필요<br>
+    <b>비고:</b> 독립 파트너로만 소개 (관계 비공개) · 클라이언트 브리프 기반 제작
+  </div>
+
+  <div class="brand">@bisaek.kr · 지니 콘텐츠 스튜디오</div>
+
+<script>
+  var S="kbridge_journey";
+  var FILES = { ar:S+"_reel_ar.mp4", ko:S+"_reel_ko.mp4", en:S+"_reel_en.mp4" };
+  function pick(lang){
+    var v=document.getElementById('player');
+    document.getElementById('src').src=FILES[lang]; v.load();
+    ['ar','ko','en'].forEach(function(l){ document.getElementById('btn-'+l).classList.toggle('active', l===lang); });
+  }
+</script>
+</body>
+</html>
