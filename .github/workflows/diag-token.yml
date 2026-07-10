@@ -1,0 +1,30 @@
+name: Diag IG Token
+
+# 수동 실행: 토큰 상태 진단용 — /me 읽기 호출만 하고 응답 JSON을 출력한다(토큰은 출력하지 않음).
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 토큰으로 /me 조회
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+        run: |
+          echo "== GET /me =="
+          curl -sS -H "Authorization: Bearer $IG_ACCESS_TOKEN" \
+            "https://graph.instagram.com/v21.0/me?fields=id,username,account_type" || true
+          echo
+          echo "== GET /<user>/media (limit 1) =="
+          curl -sS -H "Authorization: Bearer $IG_ACCESS_TOKEN" \
+            "https://graph.instagram.com/v21.0/$IG_USER_ID/media?limit=1&fields=id,timestamp" || true
+          echo
+          echo "== content_publishing_limit =="
+          curl -sS -H "Authorization: Bearer $IG_ACCESS_TOKEN" \
+            "https://graph.instagram.com/v21.0/$IG_USER_ID/content_publishing_limit" || true
+          echo
