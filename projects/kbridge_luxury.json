@@ -1,0 +1,161 @@
+{
+  "title": "Lina · Shop@KBridge — 럭셔리 브랜드 광고 · 당신의 한국 퍼스널 쇼퍼",
+  "prod_no": "BSK-20260710-21",
+  "slug": "kbridge_luxury",
+  "style": "brandfilm",
+  "grade": "luxury",
+  "music": "assets/music/emotional_orchestra_cc0.mp3",
+  "music_vol": 0.2,
+  "cover": { "tag": "تسوّقي من كوريا بثقة", "hook": "مساعدتكِ الشخصية في كوريا", "scene": "01" },
+  "scenes": [
+    {
+      "id": "01",
+      "media": "video",
+      "pexels_id": 14259065,
+      "narr": {
+        "ar": "هل حلمتِ بالتسوق من كوريا… كأنكِ تعيشين هنا؟",
+        "ko": "한국에 사는 것처럼 한국 쇼핑을 해보고 싶었던 적, 있나요?",
+        "en": "Have you ever wished you could shop in Korea — as if you lived here?"
+      },
+      "sub": {
+        "ar": "مساعدتكِ الشخصية في كوريا",
+        "ko": "한국에 있는 나만의 퍼스널 쇼퍼",
+        "en": "Your Personal Shopper in Korea"
+      }
+    },
+    {
+      "id": "02",
+      "media": "video",
+      "pexels_id": 7754395,
+      "narr": {
+        "ar": "أحدث منتجات العناية الكورية… أصلية دائمًا.",
+        "ko": "최신 K-뷰티를 매장 진열대에서 바로, 언제나 정품으로.",
+        "en": "The latest K-beauty — always authentic, straight from Korean shelves."
+      },
+      "sub": {
+        "ar": "منتجات كورية أصلية",
+        "ko": "정품 K-뷰티",
+        "en": "Authentic K-Beauty"
+      }
+    },
+    {
+      "id": "03",
+      "media": "video",
+      "pexels_id": 13641378,
+      "narr": {
+        "ar": "ألبومات وبطاقات، وإصدارات لا تجدينها إلا في كوريا.",
+        "ko": "앨범, 포토카드, 한국에서만 만날 수 있는 한정판까지.",
+        "en": "Albums, photocards, and editions you'll only find in Korea."
+      },
+      "sub": {
+        "ar": "كي-بوب وإصدارات حصرية",
+        "ko": "K-팝 & 한국 한정판",
+        "en": "K-Pop & Korea Exclusives"
+      }
+    },
+    {
+      "id": "04",
+      "media": "video",
+      "pexels_id": 8799885,
+      "narr": {
+        "ar": "سناكات كورية، مكمّلات، وكل ما تحبينه.",
+        "ko": "한국 간식과 건강식품, 좋아하는 일상템까지 전부.",
+        "en": "Korean snacks, health supplements — all your everyday favorites."
+      },
+      "sub": {
+        "ar": "سناكات كورية والمزيد",
+        "ko": "한국 간식 & 인기템",
+        "en": "Korean Snacks & More"
+      }
+    },
+    {
+      "id": "05",
+      "media": "video",
+      "pexels_id": 7191505,
+      "narr": {
+        "ar": "تعرّفي على لينا… مساعدتكِ الشخصية، تعيش في كوريا.",
+        "ko": "리나를 소개합니다. 한국에 살고 있는 당신의 퍼스널 쇼퍼예요.",
+        "en": "Meet Lina — your personal shopper, living right here in Korea."
+      },
+      "sub": {
+        "ar": "هذه لينا",
+        "ko": "리나를 소개합니다",
+        "en": "Meet Lina"
+      }
+    },
+    {
+      "id": "06",
+      "media": "video",
+      "pexels_id": 8306455,
+      "narr": {
+        "ar": "تقارن الأسعار، وتتحقق من كل قطعة بنفسها.",
+        "ko": "직접 찾아보고, 가격을 비교하고, 하나하나 눈으로 확인합니다.",
+        "en": "She sources your list, compares prices, and checks every item herself."
+      },
+      "sub": {
+        "ar": "فحص وتحقق بعناية",
+        "ko": "꼼꼼한 정품 확인",
+        "en": "Checked & Verified"
+      }
+    },
+    {
+      "id": "07",
+      "media": "video",
+      "pexels_id": 6275136,
+      "narr": {
+        "ar": "ثم تغلّف طلبكِ بكل عناية… وكأنه هدية.",
+        "ko": "그리고 선물처럼, 정성을 담아 포장하죠.",
+        "en": "Then she packs your order with care — like a gift."
+      },
+      "sub": {
+        "ar": "تغليف بعناية فائقة",
+        "ko": "선물 같은 포장",
+        "en": "Packed with Care"
+      }
+    },
+    {
+      "id": "08",
+      "media": "video",
+      "pexels_id": 31060813,
+      "narr": {
+        "ar": "ومن كوريا… إلى باب بيتكِ مباشرة.",
+        "ko": "한국에서 당신의 문 앞까지, 바로 배송해 드려요.",
+        "en": "And from Korea, it flies straight to your door."
+      },
+      "sub": {
+        "ar": "من كوريا إلى بابكِ",
+        "ko": "한국에서 문 앞까지",
+        "en": "From Korea to Your Door"
+      }
+    },
+    {
+      "id": "09",
+      "media": "video",
+      "pexels_id": 6893685,
+      "narr": {
+        "ar": "بلا تقليد، بلا حواجز لغة… فقط فرحة تصلكِ.",
+        "ko": "가품 걱정도, 언어 장벽도 없이. 문 앞에 도착하는 설렘만.",
+        "en": "No fakes, no language barriers — just joy, delivered."
+      },
+      "sub": {
+        "ar": "تسوّقي بثقة",
+        "ko": "안심 쇼핑",
+        "en": "Shop with Confidence"
+      }
+    }
+  ],
+  "endcard": {
+    "title": "Shop@KBridge",
+    "handle": "@shopatkbridge",
+    "sub": {
+      "ar": "لينا — مساعدتكِ الموثوقة للتسوق في كوريا",
+      "ko": "리나 — 믿을 수 있는 한국 퍼스널 쇼퍼",
+      "en": "Lina — Your Trusted Personal Shopper in Korea"
+    },
+    "small": {
+      "ar": "أرسلي لنا قائمة تسوقكِ اليوم",
+      "ko": "지금 쇼핑 리스트를 DM으로 보내주세요",
+      "en": "Send us your shopping list today"
+    }
+  }
+}

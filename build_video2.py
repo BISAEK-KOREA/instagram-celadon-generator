@@ -311,6 +311,19 @@ GRADES = {
     "horror": ("eq=contrast=1.22:saturation=0.68:brightness=-0.06,"
                "colorbalance=rs=-.05:gs=.06:bs=-.02:rm=-.04:gm=.05:rh=-.03,"
                "vignette=PI/3"),
+    # 소프트(ASMR): 낮은 대비, 살짝 뜬 블랙, 부드러운 온기 (감각적)
+    "soft": ("eq=contrast=0.97:saturation=1.03:brightness=0.035:gamma=1.05,"
+             "colorbalance=rs=.035:gs=.015:bs=-.02:rm=.02:bm=-.015,vignette=PI/7"),
+    # 다큐: 자연스럽고 정직한 중립 톤, 최소 보정
+    "doc": ("eq=contrast=1.04:saturation=1.0:brightness=0.0,"
+            "colorbalance=rs=.02:gs=.005:bs=-.01,vignette=PI/6"),
+    # 클린(가이드): 밝고 산뜻한 명료함, 살짝 시원한 중립
+    "clean": ("eq=contrast=1.07:saturation=1.05:brightness=0.045,"
+              "colorbalance=rs=-.005:gs=.005:bs=.02:rh=.01:bh=.02,vignette=PI/8"),
+    # 럭셔리: 밝고 부드러운 화이트+블러시 핑크, 하이라이트에 골드 온기 (프리미엄 K-뷰티 광고)
+    "luxury": ("eq=contrast=1.03:saturation=1.08:brightness=0.05:gamma=1.04,"
+               "colorbalance=rs=.04:gs=.01:bs=-.025:rm=.02:gm=.005:bm=-.015:"
+               "rh=.03:gh=.015:bh=-.01,vignette=PI/8"),
 }
 GRADE = GRADES.get(_meta.get("grade", "default"), GRADES["default"])
 

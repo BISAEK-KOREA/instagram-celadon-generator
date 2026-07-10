@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>샘플 BSK-20260710-21 — 럭셔리 브랜드 광고</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin:0; background:#2a1e1a; color:#f6efe9; font-family:-apple-system,"Segoe UI",Tahoma,sans-serif;
+    display:flex; flex-direction:column; align-items:center; min-height:100vh; padding:20px 12px; box-sizing:border-box; }
+  .pno { font-size:12px; letter-spacing:1px; opacity:.6; }
+  h1 { font-size:18px; font-weight:600; margin:2px 0; text-align:center; }
+  p.sub { font-size:13px; opacity:.7; margin:0 0 14px; text-align:center; }
+  .tabs { display:flex; gap:8px; margin-bottom:14px; flex-wrap:wrap; justify-content:center; }
+  .tabs button { border:1px solid rgba(233,183,183,.4); background:transparent; color:#f6efe9;
+    padding:8px 18px; border-radius:999px; font-size:14px; cursor:pointer; }
+  .tabs button.active { background:#e9b7b7; color:#3a2018; border-color:#e9b7b7; font-weight:600; }
+  video { width:100%; max-width:380px; border-radius:16px; box-shadow:0 8px 30px rgba(0,0,0,.5); background:#000; }
+  .info { max-width:380px; font-size:13px; opacity:.9; margin-top:16px; line-height:1.7; }
+  .info b { color:#e9c99a; }
+  .brand { margin-top:20px; font-size:12px; opacity:.5; }
+</style>
+</head>
+<body>
+  <div class="pno">제작번호 · BSK-20260710-21 · Lina · Shop@KBridge (럭셔리 브랜드 광고)</div>
+  <h1>당신의 한국 퍼스널 쇼퍼 — 럭셔리 버전</h1>
+  <p class="sub">서울 노을 → K-뷰티/K-팝/간식 → 리나 소개 → 검수·포장·배송 → 언박싱 기쁨 · 약 50초 · 비공개 미리보기</p>
+
+  <div class="tabs">
+    <button id="btn-ar" class="active" onclick="pick('ar')">🇸🇦 아랍어</button>
+    <button id="btn-ko" onclick="pick('ko')">🇰🇷 한국어</button>
+    <button id="btn-en" onclick="pick('en')">🇬🇧 English</button>
+  </div>
+
+  <video id="player" controls playsinline preload="metadata" poster="kbridge_luxury_cover.png">
+    <source id="src" src="kbridge_luxury_reel_ar.mp4" type="video/mp4">
+  </video>
+
+  <div class="info">
+    <b>카피 흐름:</b> 한국에 사는 것처럼 쇼핑해 봤나요? → 정품 K-뷰티·K-팝 한정판·간식 → 리나 소개 → 직접 비교·검수 → 선물 같은 포장 → 한국에서 문 앞까지 → 가품·언어장벽 없는 기쁨 → CTA<br>
+    <b>스타일:</b> 프리미엄 K-뷰티 광고 톤 — 화이트·블러시 핑크·골드, 밝고 부드러운 럭셔리 색보정(luxury 그레이드), 중앙 대형 타이포(브랜드필름)<br>
+    <b>음악:</b> Emotional Orchestra (CC0) · 저작자 표기 불필요<br>
+    <b>비고:</b> 독립 파트너로만 소개 (관계 비공개) · 클라이언트 브리프 기반 제작
+  </div>
+
+  <div class="brand">@bisaek.kr · 지니 콘텐츠 스튜디오</div>
+
+<script>
+  var S="kbridge_luxury";
+  var FILES = { ar:S+"_reel_ar.mp4", ko:S+"_reel_ko.mp4", en:S+"_reel_en.mp4" };
+  function pick(lang){
+    var v=document.getElementById('player');
+    document.getElementById('src').src=FILES[lang]; v.load();
+    ['ar','ko','en'].forEach(function(l){ document.getElementById('btn-'+l).classList.toggle('active', l===lang); });
+  }
+</script>
+</body>
+</html>
