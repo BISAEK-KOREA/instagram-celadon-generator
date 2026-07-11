@@ -1,0 +1,87 @@
+name: Retry When Unblocked
+
+# API 차단이 풀렸는지 4시간마다 확인하고, 풀리면 pending_reels.txt의 맨 위 릴스
+# 1편만 게시한다(한 번에 몰아서 올리면 다시 스팸으로 찍힐 수 있으므로 회당 1편).
+# 게시에 성공하면 해당 slug를 목록에서 지우고 커밋하므로 중복 게시되지 않는다.
+on:
+  schedule:
+    - cron: "23 */4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: retry-when-unblocked
+  cancel-in-progress: false
+
+jobs:
+  retry:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: 대기 목록 확인
+        id: pending
+        run: |
+          slug=$(head -n1 pending_reels.txt 2>/dev/null | tr -d '[:space:]')
+          echo "slug=$slug" >> "$GITHUB_OUTPUT"
+          if [ -z "$slug" ]; then
+            echo "대기 중인 릴스 없음 — 종료"
+          else
+            echo "다음 게시 대상: $slug"
+          fi
+
+      - name: API 차단 여부 확인
+        id: check
+        if: steps.pending.outputs.slug != ''
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+        run: |
+          resp=$(curl -sS -H "Authorization: Bearer $IG_ACCESS_TOKEN" \
+            "https://graph.instagram.com/v21.0/me?fields=id,username")
+          echo "$resp"
+          if echo "$resp" | grep -q '"username"'; then
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+            echo "차단 해제 확인 — 게시 진행"
+          else
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+            echo "아직 차단 상태 — 다음 주기에 재시도"
+          fi
+
+      - name: 파이썬 설치
+        if: steps.check.outputs.ok == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 패키지 설치
+        if: steps.check.outputs.ok == 'true'
+        run: pip install -r requirements.txt
+
+      - name: 릴스 게시
+        if: steps.check.outputs.ok == 'true'
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          BASE: https://bisaek-korea.github.io/instagram-celadon-generator/preview
+          SLUG: ${{ steps.pending.outputs.slug }}
+        run: |
+          python generate_post.py \
+            --publish-reel "$BASE/${SLUG}_reel_ar.mp4" \
+            --caption-file "captions/${SLUG}_ar.txt" \
+            --cover-url "$BASE/${SLUG}_cover.png"
+
+      - name: 대기 목록에서 제거
+        if: steps.check.outputs.ok == 'true'
+        env:
+          SLUG: ${{ steps.pending.outputs.slug }}
+        run: |
+          tail -n +2 pending_reels.txt > pending_reels.tmp
+          mv pending_reels.tmp pending_reels.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add pending_reels.txt
+          git commit -m "게시 완료: $SLUG — 대기 목록에서 제거"
+          git push
